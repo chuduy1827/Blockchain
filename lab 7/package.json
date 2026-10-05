@@ -1,0 +1,22 @@
+{
+  "name": "lab-07-token-standards",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Lab 07: ERC-20, ERC-721, and EIP-2612 permit on Hardhat + TrustKeys",
+  "scripts": {
+    "test": "hardhat test",
+    "compile": "hardhat compile",
+    "deploy:token": "hardhat run scripts/deploy-token.js --network trustkeys",
+    "deploy:badge": "hardhat run scripts/deploy-badge.js --network trustkeys",
+    "interact:token": "hardhat run scripts/interact-token.js --network trustkeys",
+    "read:badge": "hardhat run scripts/read-badge.js --network trustkeys"
+  },
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "5.0.0",
+    "dotenv": "16.4.5",
+    "hardhat": "2.28.0"
+  },
+  "dependencies": {
+    "@openzeppelin/contracts": "5.0.2"
+  }
+}

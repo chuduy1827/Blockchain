@@ -1,0 +1,6 @@
+# Use only a dedicated TrustKeys test account. Never put a real funded key here.
+PRIVATE_KEY=0xyour_dedicated_test_account_private_key
+TRUSTKEYS_RPC_URL=https://l1testnet.trustkeys.network
+02aa26aeef17a8f0c52db8f698eccb90de986ffcabfe426507a00ad70365e07360
+
+x≈
