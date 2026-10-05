@@ -1,0 +1,1715 @@
+<!DOCTYPE html>
+<html lang="vi" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blockchain Mastery - Nền tảng Học tập & Đấu trường Trắc nghiệm Động</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <!-- Google Fonts: Inter & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          colors: {
+            brand: {
+              50: '#eef2ff',
+              100: '#e0e7ff',
+              500: '#6366f1',
+              600: '#4f46e5',
+              700: '#4338ca',
+              900: '#1e1b4b',
+              950: '#0f0e26'
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Custom scrollbar */
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: #070b14; }
+    ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 9999px; }
+    ::-webkit-scrollbar-thumb:hover { background: #334155; }
+    
+    .glow-gradient-text {
+      background: linear-gradient(135deg, #38bdf8 0%, #818cf8 50%, #c084fc 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .card-glass {
+      background: rgba(15, 23, 42, 0.75);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(51, 65, 85, 0.6);
+    }
+    .hide-scrollbar::-webkit-scrollbar { display: none; }
+    .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+  </style>
+</head>
+<body class="bg-[#050811] text-slate-200 font-sans min-h-screen flex flex-col selection:bg-indigo-500 selection:text-white">
+
+  <header class="sticky top-0 z-50 bg-[#090e1d]/90 backdrop-blur-md border-b border-slate-800/80 px-4 lg:px-8 py-3 transition-all">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-4">
+      <!-- Logo & Brand -->
+      <div class="flex items-center space-x-3.5">
+        <div class="h-10 w-10 rounded-xl bg-gradient-to-tr from-cyan-500 via-indigo-600 to-fuchsia-600 flex items-center justify-center shadow-lg shadow-indigo-500/25 ring-1 ring-white/10">
+          <i class="fa-solid fa-cubes text-white text-lg"></i>
+        </div>
+        <div>
+          <div class="flex items-center space-x-2">
+            <h1 class="text-base sm:text-lg font-bold tracking-tight glow-gradient-text">Blockchain Academy</h1>
+            <span class="text-[10px] px-2 py-0.5 rounded-full bg-indigo-500/15 text-indigo-300 border border-indigo-500/30 font-mono font-medium">Interactive Hub</span>
+          </div>
+          <p class="text-[11px] text-slate-400 hidden sm:block">Giáo trình 7 Bài giảng Chuyên sâu • Đấu trường Quiz • AI Tutor</p>
+        </div>
+      </div>
+
+      <!-- Main Navigation Tabs -->
+      <nav class="flex items-center space-x-1 sm:space-x-1.5 bg-slate-950/80 p-1 rounded-xl border border-slate-800/90 text-xs sm:text-sm font-medium">
+        <button onclick="switchTab('lectures')" id="nav-btn-lectures" class="tab-btn active px-3.5 py-1.5 rounded-lg transition-all flex items-center space-x-2 text-white bg-indigo-600 shadow-md shadow-indigo-600/30">
+          <i class="fa-solid fa-book-open"></i>
+          <span>7 Bài giảng</span>
+        </button>
+        <button onclick="switchTab('simulators')" id="nav-btn-simulators" class="tab-btn px-3.5 py-1.5 rounded-lg transition-all flex items-center space-x-2 text-slate-400 hover:text-slate-200 hover:bg-slate-900">
+          <i class="fa-solid fa-microchip"></i>
+          <span>Mô phỏng Lab</span>
+        </button>
+        <button onclick="switchTab('quiz')" id="nav-btn-quiz" class="tab-btn px-3.5 py-1.5 rounded-lg transition-all flex items-center space-x-2 text-slate-400 hover:text-slate-200 hover:bg-slate-900">
+          <i class="fa-solid fa-shuffle"></i>
+          <span>Quiz Arena</span>
+        </button>
+        <button onclick="switchTab('tutor')" id="nav-btn-tutor" class="tab-btn px-3.5 py-1.5 rounded-lg transition-all flex items-center space-x-2 text-slate-400 hover:text-slate-200 hover:bg-slate-900">
+          <i class="fa-solid fa-wand-magic-sparkles text-amber-400"></i>
+          <span>AI Tutor</span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="flex-1 max-w-7xl mx-auto w-full p-4 lg:p-8">
+
+    <!-- ========================================================= -->
+    <!-- TAB 1: BÀI GIẢNG 7 CHUYÊN ĐỀ RIÊNG BIỆT (LECTURES)         -->
+    <!-- ========================================================= -->
+    <section id="tab-content-lectures" class="space-y-6">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+        
+        <!-- Sidebar: Danh sách 7 bài giảng -->
+        <div class="lg:col-span-4 space-y-3">
+          <div class="card-glass rounded-2xl p-4 shadow-xl">
+            <h2 class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-3 px-1 flex items-center justify-between">
+              <span>Mục lục 7 Bài giảng</span>
+              <span class="text-[11px] text-indigo-400 font-mono font-medium">Session 1 - 8</span>
+            </h2>
+            <div id="lecture-menu" class="space-y-2">
+              <!-- Menu sinh động qua JS -->
+            </div>
+          </div>
+
+          <!-- Card tương tác nhanh sang Quiz và Tutor -->
+          <div class="card-glass rounded-2xl p-4.5 bg-gradient-to-br from-indigo-950/40 via-slate-900/60 to-slate-950 border border-indigo-900/40 space-y-3">
+            <div class="flex items-center space-x-2.5 text-indigo-400 text-xs font-semibold uppercase tracking-wide">
+              <i class="fa-solid fa-graduation-cap text-base"></i>
+              <span>Luyện tập & Hỏi bài</span>
+            </div>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              Bạn có thể làm bài test trắc nghiệm ngẫu nhiên ngay cho chuyên đề đang đọc hoặc trao đổi trực tiếp với Trợ giảng AI.
+            </p>
+            <div class="grid grid-cols-2 gap-2 pt-1">
+              <button onclick="testCurrentModule()" class="px-3 py-2 bg-indigo-600/90 hover:bg-indigo-600 text-white text-xs font-medium rounded-xl transition flex items-center justify-center space-x-1.5 shadow-md shadow-indigo-600/20">
+                <i class="fa-solid fa-play text-[10px]"></i>
+                <span>Test bài này</span>
+              </button>
+              <button onclick="askTutorCurrentTopic()" class="px-3 py-2 bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-medium rounded-xl transition flex items-center justify-center space-x-1.5">
+                <i class="fa-solid fa-comments"></i>
+                <span>Hỏi Tutor</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Main Reader Panel -->
+        <div class="lg:col-span-8 card-glass rounded-2xl p-6 lg:p-8 shadow-xl relative" id="lecture-viewer">
+          <!-- Nội dung bài giảng nạp động qua JS -->
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================= -->
+    <!-- TAB 2: MÔ PHỎNG LAB TRỰC QUAN (SIMULATORS)                -->
+    <!-- ========================================================= -->
+    <section id="tab-content-simulators" class="hidden space-y-8">
+      <div class="border-b border-slate-800 pb-4">
+        <h2 class="text-xl sm:text-2xl font-bold text-slate-100 flex items-center space-x-3">
+          <i class="fa-solid fa-microchip text-cyan-400"></i>
+          <span>Phòng Thí Nghiệm & Mô Phỏng Tương Tác Blockchain</span>
+        </h2>
+        <p class="text-xs sm:text-sm text-slate-400 mt-1.5">
+          Trải nghiệm thực tế cách hoạt động của Hiệu ứng thác đổ hàm băm, cơ chế tính phí ngầm định UTXO và lỗ hổng bòn rút kho quỹ Reentrancy.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+
+        <!-- SIMULATOR 1: LIVE SHA-256 AVALANCHE EFFECT -->
+        <div class="card-glass rounded-2xl p-6 shadow-xl flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-[11px] font-bold uppercase tracking-wider text-cyan-400 bg-cyan-950/60 px-2.5 py-1 rounded-md border border-cyan-800/40">
+                Mô phỏng 1 • Mật mã học (Bài 2)
+              </span>
+              <i class="fa-solid fa-bolt text-cyan-400"></i>
+            </div>
+            <h3 class="text-lg font-bold text-slate-100">Hiệu Ứng Thác Đổ SHA-256 (Avalanche Effect)</h3>
+            <p class="text-xs text-slate-400 mt-1 mb-4 leading-relaxed">
+              Nhập hoặc chỉnh sửa chỉ một ký tự bất kỳ trong ô dữ liệu. Bạn sẽ thấy 256 bits (64 ký tự Hexadecimal) bên dưới bị xáo trộn ngẫu nhiên hoàn toàn.
+            </p>
+
+            <label class="block text-xs font-semibold text-slate-300 mb-1.5">Dữ liệu đầu vào (Input string):</label>
+            <input 
+              type="text" 
+              id="sim-hash-input" 
+              value="Blockchain 101" 
+              oninput="computeLiveHash()"
+              placeholder="Gõ bất kỳ ký tự nào..." 
+              class="w-full px-3.5 py-2.5 bg-slate-950 border border-slate-700 rounded-xl text-slate-200 text-sm focus:outline-none focus:border-cyan-500 font-mono transition"
+            />
+
+            <div class="mt-4 space-y-1.5">
+              <div class="flex items-center justify-between text-xs">
+                <span class="text-slate-400 font-medium">Mã băm SHA-256 (64 hex characters):</span>
+                <span class="text-cyan-400 font-mono text-[11px]">32 bytes fixed</span>
+              </div>
+              <div id="sim-hash-output" class="p-3.5 bg-slate-950 border border-cyan-900/40 rounded-xl font-mono text-xs text-cyan-300 break-all select-all shadow-inner leading-relaxed">
+                Đang tính toán...
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-6 pt-4 border-t border-slate-800/80 text-xs text-slate-400 flex items-start space-x-2">
+            <i class="fa-solid fa-circle-info text-cyan-400 mt-0.5"></i>
+            <span>Ý nghĩa: Đảm bảo tính bất biến liên kết khối (Block linking), câu đố PoW và tính toàn vẹn giao dịch.</span>
+          </div>
+        </div>
+
+        <!-- SIMULATOR 2: UTXO TRANSACTION & IMPLICIT MINER FEE -->
+        <div class="card-glass rounded-2xl p-6 shadow-xl flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-[11px] font-bold uppercase tracking-wider text-amber-400 bg-amber-950/60 px-2.5 py-1 rounded-md border border-amber-800/40">
+                Mô phỏng 2 • Bitcoin UTXO (Bài 3)
+              </span>
+              <i class="fa-brands fa-bitcoin text-amber-400"></i>
+            </div>
+            <h3 class="text-lg font-bold text-slate-100">Máy Tính Dòng Tiền UTXO & Phí Thợ Đào Ngầm Định</h3>
+            <p class="text-xs text-slate-400 mt-1 mb-4 leading-relaxed">
+              Mô phỏng ví dụ Slide 19: Alice có tờ UTXO 0.8 BTC, trả Bob 0.5 BTC. Phí thợ đào là ngầm định: <span class="font-mono text-amber-300">Fee = ΣInputs - ΣOutputs</span>.
+            </p>
+
+            <div class="grid grid-cols-2 gap-3 mb-3">
+              <div>
+                <label class="block text-[11px] font-medium text-slate-300 mb-1">UTXO Đầu vào (Alice có):</label>
+                <div class="relative">
+                  <input type="number" id="utxo-input" value="0.8000" step="0.05" oninput="calculateUTXO()" class="w-full px-3 py-1.5 bg-slate-950 border border-slate-700 rounded-lg text-xs font-mono text-slate-200">
+                  <span class="absolute right-2.5 top-1.5 text-[10px] text-slate-500 font-mono">BTC</span>
+                </div>
+              </div>
+              <div>
+                <label class="block text-[11px] font-medium text-slate-300 mb-1">Số chuyển cho Bob:</label>
+                <div class="relative">
+                  <input type="number" id="utxo-send" value="0.5000" step="0.05" oninput="calculateUTXO()" class="w-full px-3 py-1.5 bg-slate-950 border border-slate-700 rounded-lg text-xs font-mono text-slate-200">
+                  <span class="absolute right-2.5 top-1.5 text-[10px] text-slate-500 font-mono">BTC</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-2 gap-3 mb-4">
+              <div>
+                <label class="block text-[11px] font-medium text-slate-300 mb-1">Đơn giá phí (Fee Rate):</label>
+                <div class="relative">
+                  <input type="number" id="utxo-feerate" value="25" step="1" oninput="calculateUTXO()" class="w-full px-3 py-1.5 bg-slate-950 border border-slate-700 rounded-lg text-xs font-mono text-slate-200">
+                  <span class="absolute right-2.5 top-1.5 text-[10px] text-slate-500 font-mono">sat/vB</span>
+                </div>
+              </div>
+              <div>
+                <label class="block text-[11px] font-medium text-slate-300 mb-1">Dung lượng Tx:</label>
+                <div class="relative">
+                  <input type="number" id="utxo-size" value="141" step="1" oninput="calculateUTXO()" class="w-full px-3 py-1.5 bg-slate-950 border border-slate-700 rounded-lg text-xs font-mono text-slate-200">
+                  <span class="absolute right-2.5 top-1.5 text-[10px] text-slate-500 font-mono">vB</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-slate-950 p-3.5 rounded-xl border border-slate-800 space-y-2 text-xs">
+              <div class="flex justify-between items-center text-slate-300">
+                <span>Phí thợ đào ngầm định (Fee):</span>
+                <span id="utxo-res-fee" class="font-mono text-amber-400 font-semibold">0.000035 BTC (~3,525 sats)</span>
+              </div>
+              <div class="flex justify-between items-center text-slate-300">
+                <span>Tiền thối về ví mới của Alice:</span>
+                <span id="utxo-res-change" class="font-mono text-emerald-400 font-semibold">0.299965 BTC</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-4 pt-4 border-t border-slate-800/80 text-xs text-rose-300/90 flex items-start space-x-2">
+            <i class="fa-solid fa-triangle-exclamation text-rose-400 mt-0.5"></i>
+            <span>Cảnh báo: Nếu lập trình viên quên viết Change Output, thợ đào sẽ tự động hưởng toàn bộ tiền thừa!</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- SIMULATOR 3: REENTRANCY ATTACK VS CEI PLAYGROUND -->
+      <div class="card-glass rounded-2xl p-6 lg:p-8 shadow-xl">
+        <div class="flex flex-wrap items-center justify-between gap-4 mb-6 border-b border-slate-800 pb-4">
+          <div>
+            <div class="flex items-center space-x-2">
+              <span class="text-[11px] font-bold uppercase tracking-wider text-rose-400 bg-rose-950/60 px-2.5 py-1 rounded-md border border-rose-800/40">
+                Mô phỏng 3 • Bảo mật Hợp đồng (Bài 7)
+              </span>
+              <span class="text-xs text-slate-400">Vụ hack The DAO & Mẫu thiết kế CEI (Checks-Effects-Interactions)</span>
+            </div>
+            <h3 class="text-xl font-bold text-slate-100 mt-2">Đấu Trường Tấn Công Tái Thâm Nhập (Reentrancy Exploit)</h3>
+          </div>
+
+          <div class="flex items-center space-x-3">
+            <div class="flex items-center space-x-2 bg-slate-950 px-3.5 py-2 rounded-xl border border-slate-800">
+              <input type="checkbox" id="cei-toggle" class="h-4 w-4 rounded accent-emerald-500 cursor-pointer">
+              <label for="cei-toggle" class="text-xs font-semibold cursor-pointer text-slate-200 select-none">
+                Bật phòng thủ CEI (Trừ số dư TRƯỚC khi gửi tiền)
+              </label>
+            </div>
+            <button onclick="resetReentrancyPlayground()" class="px-3 py-2 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded-xl text-xs transition">
+              <i class="fa-solid fa-rotate-left mr-1"></i> Reset
+            </button>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+          <div class="p-4 rounded-xl bg-slate-950 border border-slate-800">
+            <span class="text-xs text-slate-400">Kho bạc Hợp đồng (EtherBank):</span>
+            <div class="text-2xl font-bold font-mono text-cyan-400 mt-1" id="bank-treasury">10 ETH</div>
+            <span class="text-[10px] text-slate-500">Chứa tiền của người dùng khác</span>
+          </div>
+          <div class="p-4 rounded-xl bg-slate-950 border border-slate-800">
+            <span class="text-xs text-slate-400">Số dư Hacker được ghi nhận:</span>
+            <div class="text-2xl font-bold font-mono text-amber-400 mt-1" id="hacker-stake">1 ETH</div>
+            <span class="text-[10px] text-slate-500">Hacker đã nạp trước 1 ETH</span>
+          </div>
+          <div class="p-4 rounded-xl bg-slate-950 border border-slate-800">
+            <span class="text-xs text-slate-400">Ví Hacker (Attacker Loot):</span>
+            <div class="text-2xl font-bold font-mono text-rose-400 mt-1" id="hacker-loot">0 ETH</div>
+            <span class="text-[10px] text-slate-500">Tổng tiền đã bòn rút được</span>
+          </div>
+        </div>
+
+        <div class="flex items-center space-x-3 mb-4">
+          <button id="btn-attack" onclick="triggerReentrancyAttack()" class="px-5 py-2.5 rounded-xl font-semibold text-xs bg-rose-600 hover:bg-rose-500 text-white shadow-lg shadow-rose-600/30 transition flex items-center space-x-2">
+            <i class="fa-solid fa-skull"></i>
+            <span>Hacker gọi hàm withdraw()</span>
+          </button>
+          <span class="text-xs text-slate-400" id="attack-status-tip">Nhấn để theo dõi cuộc gọi đệ quy thực thi theo thời gian thực.</span>
+        </div>
+
+        <div class="rounded-xl overflow-hidden border border-slate-800 bg-slate-950 font-mono text-xs">
+          <div class="bg-slate-900/90 px-4 py-2 border-b border-slate-800 flex items-center justify-between text-slate-400 text-[11px]">
+            <span class="flex items-center space-x-2">
+              <i class="fa-solid fa-terminal text-emerald-400"></i>
+              <span>EVM Execution Traces (Nhật ký thực thi Opcode & Call)</span>
+            </span>
+            <span id="log-count">0 sự kiện</span>
+          </div>
+          <div id="reentrancy-terminal" class="p-4 space-y-1.5 max-h-56 overflow-y-auto text-slate-300">
+            <p class="text-slate-500">Hệ thống sẵn sàng. Nhấn nút "Hacker gọi hàm withdraw()" để bắt đầu mô phỏng...</p>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ========================================================= -->
+    <!-- TAB 3: ĐẤU TRƯỜNG KIỂM TRA TRẮC NGHIỆM RANDOM (QUIZ ARENA)-->
+    <!-- ========================================================= -->
+    <section id="tab-content-quiz" class="hidden space-y-6">
+      <div class="card-glass rounded-2xl p-6 shadow-xl flex flex-wrap items-center justify-between gap-4">
+        <div>
+          <h2 class="text-xl sm:text-2xl font-bold text-slate-100 flex items-center space-x-2.5">
+            <i class="fa-solid fa-shuffle text-indigo-400"></i>
+            <span>Đấu Trường Kiểm Tra Kiến Thức Toàn Diện</span>
+          </h2>
+          <p class="text-xs sm:text-sm text-slate-400 mt-1">
+            Chế độ thi linh hoạt: Kiểm tra ngẫu nhiên (Random Exam) toàn khóa hoặc ôn luyện riêng từng bài từ Bài 1 đến Bài 7.
+          </p>
+        </div>
+
+        <div class="flex flex-wrap items-center gap-3">
+          <div class="flex bg-slate-950 p-1 rounded-xl border border-slate-800 text-xs font-medium">
+            <button onclick="setQuizMode('random')" id="quiz-mode-random" class="px-3.5 py-1.5 rounded-lg bg-indigo-600 text-white transition">
+              Random Hỗn Hợp (Midterm)
+            </button>
+            <button onclick="setQuizMode('module')" id="quiz-mode-module" class="px-3.5 py-1.5 rounded-lg text-slate-400 hover:text-white transition">
+              Theo từng Bài giảng
+            </button>
+          </div>
+
+          <div id="quiz-module-select-wrap" class="hidden">
+            <select id="quiz-module-select" onchange="generateQuiz()" class="bg-slate-950 border border-slate-800 text-xs text-slate-300 rounded-xl px-3 py-2 focus:outline-none focus:border-indigo-500">
+              <option value="all">Tất cả bài giảng (Toàn khóa)</option>
+              <option value="m1">Bài 1: Distributed Systems & Blockchain 101</option>
+              <option value="m2">Bài 2: Applied Cryptography & Merkle Tree</option>
+              <option value="m3">Bài 3: Bitcoin In-Depth & Nakamoto Consensus</option>
+              <option value="m4">Bài 4: Ethereum, EVM & EIP-1559</option>
+              <option value="m5">Bài 5: Smart Contract Engineering & Tooling</option>
+              <option value="m6">Bài 6: Reusable Token Standards & NFT</option>
+              <option value="m7">Bài 7: Smart Contract Security & Nâng cao</option>
+            </select>
+          </div>
+
+          <div class="flex items-center space-x-1.5 bg-slate-950 px-2.5 py-1 rounded-xl border border-slate-800 text-xs">
+            <span class="text-slate-400">Số câu:</span>
+            <select id="quiz-count-select" onchange="generateQuiz()" class="bg-transparent text-indigo-300 font-mono font-semibold focus:outline-none">
+              <option value="6">6 câu</option>
+              <option value="10" selected>10 câu</option>
+              <option value="14">14 câu</option>
+              <option value="all">Tất cả</option>
+            </select>
+          </div>
+
+          <button onclick="generateQuiz()" class="px-3.5 py-2 bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold rounded-xl border border-slate-700 transition flex items-center space-x-1.5">
+            <i class="fa-solid fa-arrows-rotate"></i>
+            <span>Đổi Đề Mới</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Vùng hiển thị câu hỏi trắc nghiệm -->
+      <div id="quiz-questions-list" class="space-y-5">
+        <!-- Render câu hỏi qua JS -->
+      </div>
+
+      <!-- Thanh nộp bài dính đáy màn hình -->
+      <div id="quiz-bottom-bar" class="sticky bottom-4 z-40 bg-slate-900/95 backdrop-blur-md border border-slate-800 p-4 rounded-2xl shadow-2xl flex flex-wrap items-center justify-between gap-4">
+        <div id="quiz-summary-text" class="text-xs sm:text-sm text-slate-300 font-medium">
+          Chọn đáp án cho các câu hỏi bên trên và bấm nút nộp bài.
+        </div>
+        <div class="flex items-center space-x-3">
+          <button id="btn-submit-quiz" onclick="submitQuiz()" class="px-6 py-2.5 bg-indigo-600 hover:bg-indigo-500 text-white font-semibold text-xs sm:text-sm rounded-xl shadow-lg shadow-indigo-600/30 transition">
+            Nộp Bài & Chấm Điểm
+          </button>
+          <button id="btn-retry-quiz" onclick="generateQuiz()" class="hidden px-6 py-2.5 bg-blue-600 hover:bg-blue-500 text-white font-semibold text-xs sm:text-sm rounded-xl shadow-lg shadow-blue-600/30 transition">
+            Làm Đề Khác
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================= -->
+    <!-- TAB 4: TRỢ GIẢNG TUTOR TƯƠNG TÁC (AI TUTOR CHATBOT)       -->
+    <!-- ========================================================= -->
+    <section id="tab-content-tutor" class="hidden">
+      <div class="card-glass rounded-2xl shadow-2xl flex flex-col h-[76vh] overflow-hidden">
+        
+        <!-- Header Chatbot -->
+        <div class="bg-slate-900/95 border-b border-slate-800 p-4 flex flex-wrap items-center justify-between gap-3">
+          <div class="flex items-center space-x-3">
+            <div class="h-10 w-10 rounded-xl bg-gradient-to-tr from-amber-500 to-indigo-600 flex items-center justify-center text-white shadow-md shadow-amber-500/20">
+              <i class="fa-solid fa-robot text-lg"></i>
+            </div>
+            <div>
+              <div class="flex items-center space-x-2">
+                <h3 class="text-sm font-bold text-slate-100">Trợ Giảng Thông Minh (Blockchain Tutor)</h3>
+                <span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-medium bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+                  <span class="h-1.5 w-1.5 rounded-full bg-emerald-400 mr-1 animate-pulse"></span> Offline/Online Ready
+                </span>
+              </div>
+              <p class="text-xs text-slate-400">Hỗ trợ trả lời offline tức thì từ ngân hàng bài giảng + tùy chọn kết nối Gemini API</p>
+            </div>
+          </div>
+
+          <button onclick="toggleApiKeyModal()" class="px-3 py-1.5 bg-slate-950 hover:bg-slate-800 border border-slate-800 text-xs text-slate-300 rounded-xl transition flex items-center space-x-1.5">
+            <i class="fa-solid fa-key text-amber-400"></i>
+            <span>Cấu hình Gemini API (Tùy chọn)</span>
+          </button>
+        </div>
+
+        <!-- Quick Question Suggestions -->
+        <div class="px-4 py-2.5 bg-slate-950/70 border-b border-slate-800/80 flex items-center space-x-2 overflow-x-auto text-xs whitespace-nowrap hide-scrollbar">
+          <span class="text-[11px] text-slate-400 shrink-0 font-medium">Gợi ý hỏi nhanh:</span>
+          <button onclick="sendQuickPrompt('Phân biệt Session 6 (Engineering) và Session 7 (Token standards)?')" class="px-2.5 py-1 bg-slate-900 hover:bg-slate-800 text-slate-300 rounded-lg border border-slate-800 transition">
+            🔄 Phân biệt Bài 6 & Bài 7
+          </button>
+          <button onclick="sendQuickPrompt('Quy tắc ngón tay cái chọn chuẩn token: how much, which one, a catalogue?')" class="px-2.5 py-1 bg-slate-900 hover:bg-slate-800 text-slate-300 rounded-lg border border-slate-800 transition">
+            🏷️ Quy tắc ERC-20/721/1155
+          </button>
+          <button onclick="sendQuickPrompt('Giải thích bài toán Slide 19: Alice có 0.8 BTC trả Bob 0.5 BTC')" class="px-2.5 py-1 bg-slate-900 hover:bg-slate-800 text-slate-300 rounded-lg border border-slate-800 transition">
+            💵 Bài toán UTXO 0.8 BTC
+          </button>
+          <button onclick="sendQuickPrompt('Tại sao Bitcoin Script lại cố ý không Turing-complete?')" class="px-2.5 py-1 bg-slate-900 hover:bg-slate-800 text-slate-300 rounded-lg border border-slate-800 transition">
+            ⚙️ Bitcoin Script & Halting problem
+          </button>
+          <button onclick="sendQuickPrompt('Checks-Effects-Interactions (CEI) bảo vệ Reentrancy thế nào?')" class="px-2.5 py-1 bg-slate-900 hover:bg-slate-800 text-slate-300 rounded-lg border border-slate-800 transition">
+            🛡️ Mẫu thiết kế CEI
+          </button>
+        </div>
+
+        <!-- Khung chat hiển thị hội thoại -->
+        <div id="tutor-chat-stream" class="flex-1 p-4 lg:p-6 overflow-y-auto space-y-4 font-sans text-sm">
+          <div class="flex items-start space-x-3">
+            <div class="h-8 w-8 rounded-lg bg-indigo-600/20 border border-indigo-500/40 text-indigo-400 flex items-center justify-center shrink-0 mt-0.5">
+              <i class="fa-solid fa-graduation-cap"></i>
+            </div>
+            <div class="max-w-2xl p-4 rounded-2xl rounded-tl-none bg-slate-950 border border-slate-800 text-slate-200 text-xs sm:text-sm leading-relaxed shadow-inner">
+              Chào bạn! Tôi là <strong>Trợ giảng Blockchain Academy</strong>. Bạn có thể hỏi tôi bất kỳ nội dung nào từ Bài 1 đến Bài 7:
+              <ul class="list-disc list-inside mt-2 space-y-1 text-slate-400">
+                <li><strong>Bài 5 (Session 6):</strong> Giải phẫu contract, Hardhat workflow, biến Storage vs Memory vs Calldata.</li>
+                <li><strong>Bài 6 (Session 7):</strong> Token Standards ERC-20, NFT on-chain SVG ERC-721, ERC-1155, EIP-2612 Permit.</li>
+                <li><strong>Các bài khác:</strong> Mật mã, Bitcoin UTXO, EVM EIP-1559, Reentrancy CEI pattern, bài tập Halving Block 840,000...</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Ô nhập chat -->
+        <div class="p-4 border-t border-slate-800 bg-slate-950">
+          <form onsubmit="handleTutorSubmit(event)" class="flex items-center space-x-3">
+            <input 
+              type="text" 
+              id="tutor-input" 
+              placeholder="Nhập câu hỏi của bạn (ví dụ: Calldata khác Memory thế nào, quy tắc how much là gì...)" 
+              class="flex-1 px-4 py-2.5 bg-slate-900 border border-slate-700 rounded-xl text-slate-100 text-xs sm:text-sm focus:outline-none focus:border-indigo-500 transition"
+            />
+            <button 
+              type="submit" 
+              class="px-5 py-2.5 bg-indigo-600 hover:bg-indigo-500 text-white rounded-xl font-medium text-xs sm:text-sm transition flex items-center space-x-2 shadow-md shadow-indigo-600/20 shrink-0"
+            >
+              <span>Hỏi bài</span>
+              <i class="fa-solid fa-paper-plane text-xs"></i>
+            </button>
+          </form>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Modal cấu hình Gemini API Key tùy chọn -->
+  <div id="modal-apikey" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden flex items-center justify-center p-4">
+    <div class="bg-slate-900 border border-slate-800 rounded-2xl max-w-md w-full p-6 space-y-4 shadow-2xl">
+      <div class="flex items-center justify-between">
+        <h4 class="text-base font-bold text-slate-100 flex items-center space-x-2">
+          <i class="fa-solid fa-key text-amber-400"></i>
+          <span>Cấu hình Gemini API (Tùy chọn)</span>
+        </h4>
+        <button onclick="toggleApiKeyModal()" class="text-slate-400 hover:text-white">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      <p class="text-xs text-slate-400 leading-relaxed">
+        Trợ giảng mặc định đã trang bị <strong>bộ tri thức tự động thông minh offline</strong>. Nếu bạn muốn trò chuyện mở rộng với mô hình Google Gemini trên đám mây, hãy dán API Key vào đây (chỉ lưu an toàn trên LocalStorage trình duyệt của bạn).
+      </p>
+      <div>
+        <label class="block text-xs font-semibold text-slate-300 mb-1">Gemini API Key:</label>
+        <input type="password" id="gemini-key-input" placeholder="AIzaSy..." class="w-full px-3.5 py-2 bg-slate-950 border border-slate-700 rounded-xl text-xs font-mono text-slate-200 focus:outline-none focus:border-amber-500">
+      </div>
+      <div class="flex items-center justify-end space-x-2 pt-2">
+        <button onclick="clearApiKey()" class="px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs rounded-lg transition">Xóa Key</button>
+        <button onclick="saveApiKey()" class="px-4 py-1.5 bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-semibold rounded-lg transition">Lưu cấu hình</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const MODULES_DATA = [
+      {
+        id: 'm1',
+        title: 'Bài 1: Distributed Systems & Blockchain 101',
+        session: 'Session 1 - 2',
+        badge: 'Nền tảng',
+        icon: 'fa-network-wired',
+        summary: 'Kiến trúc hệ thống phân tán, các loại lỗi (Fail-stop vs Byzantine faults), định nghĩa kỹ thuật của Blockchain, ngăn xếp 6 tầng và các thực thể phi tập trung (DO, DAO, DAC, DAS).',
+        sections: [
+          {
+            heading: '1. Hệ thống phân tán & Hai loại lỗi kinh điển',
+            content: `Trong hệ thống phân tán, việc giữ tính đồng nhất khi các node gặp sự cố được chia thành 2 loại lỗi:\n
+1. **Lỗi dừng hoạt động (Fail-stop / Crash faults):** Node gặp sự cố phần cứng, mất điện hoặc ngắt kết nối mạng và ngừng hẳn việc phản hồi. Lỗi này dễ xử lý hơn bằng các giao thức như Paxos hay Raft.\n
+2. **Lỗi Byzantine (Byzantine faults):** Các thành phần trong mạng không đáng tin cậy, hành xử ác ý, nói dối hoặc gửi các thông điệp mâu thuẫn nhau cho các node khác. Đây là bài toán hóc búa nhất mà cơ chế đồng thuận của Blockchain giải quyết.`,
+            codeSnippet: `// 6 Tầng kiến trúc của Blockchain (The 6-Layer Stack):
+// 1. Applications: Smart contracts, DApps, DAOs, Autonomous Agents
+// 2. Execution: Virtual machines (EVM), Blocks, Transactions
+// 3. Consensus: State machine replication, Proof-based (PoW/PoS), BFT
+// 4. Cryptography: Public key cryptography, Digital signatures, Hash functions
+// 5. P2P: Gossip protocols, Epidemic protocols, Routing & Flooding
+// 6. Network: The Internet, TCP/IP`
+          },
+          {
+            heading: '2. Định nghĩa Blockchain: Dưới góc nhìn Phổ thông & Kỹ thuật',
+            content: `* **Định nghĩa phổ thông (Layman\'s definition):** Blockchain là một hệ thống ghi sổ bảo mật, không ngừng mở rộng và được chia sẻ chung. Mỗi người dùng đều nắm giữ một bản sao của sổ cái, và sổ chỉ được cập nhật khi các bên tham gia đồng ý.\n
+* **Định nghĩa kỹ thuật (Technical definition):** Blockchain là một sổ cái phân tán ngang hàng (Peer-to-peer distributed ledger) có tính chất:
+  - **Cryptographically-secure:** Bảo mật bằng mật mã học (hàm băm, chữ ký số).
+  - **Append-only:** Chỉ được phép ghi nối tiếp vào cuối, không được xóa.
+  - **Immutable:** Bất biến, cực kỳ khó sửa đổi dữ liệu đã ghi.
+  - **Consensus-driven:** Chỉ có thể cập nhật thông qua sự đồng thuận giữa các nút mạng.`
+          },
+          {
+            heading: '3. DApps & Các dạng thực thể phi tập trung (DO, DAO, DAC, DAS)',
+            content: `DApps (Decentralized Applications) được chia thành 3 loại:
+- **Type 1:** Hoạt động trên blockchain riêng biệt của chính nó (Bitcoin, Ethereum).
+- **Type 2:** Sử dụng blockchain công khai có sẵn (Uniswap trên Ethereum).
+- **Type 3:** Sử dụng giao thức của DApp Type 2.\n
+**Bốn dạng tổ chức tự trị phi tập trung:**
+1. **DO (Decentralized Organization):** Tổ chức phi tập trung có sự phối hợp giữa người tham gia và mã code.
+2. **DAO (Decentralized Autonomous Organization):** Tổ chức tự trị phi tập trung, hoạt động tự động hóa hoàn toàn bằng smart contract và bỏ phiếu bằng token governance.
+3. **DAC (Decentralized Autonomous Corporation):** Doanh nghiệp tự trị hướng tới mục tiêu tạo lợi nhuận và trả cổ tức cho cổ đông.
+4. **DAS (Decentralized Autonomous Society):** Xã hội tự trị vận hành trên quy mô cộng đồng hoặc quốc gia số.`
+          }
+        ]
+      },
+      {
+        id: 'm2',
+        title: 'Bài 2: Applied Cryptography & Merkle Tree',
+        session: 'Session 3',
+        badge: 'Mật mã học',
+        icon: 'fa-key',
+        summary: '3 tính chất cốt tử của hàm băm SHA-256, Cây Merkle với bằng chứng xác minh O(log n), chữ ký số ECDSA secp256k1 & ecrecover, chuẩn ví phân cấp BIP-39/BIP-32/BIP-44.',
+        sections: [
+          {
+            heading: '1. Hàm băm mật mã: 3 Tính chất & Ứng dụng thực tế',
+            content: `Hàm băm là hàm một chiều biến đầu vào tùy ý thành đầu ra có kích thước cố định (SHA-256 luôn ra 256 bits = 32 bytes):\n
+1. **Preimage Resistance (Kháng tiền ảnh):** Cho trước $y = H(x)$, bất khả thi để tính ngược ra $x$. Ứng dụng: PoW puzzle và tạo địa chỉ ví từ Public Key.\n
+2. **Second-preimage Resistance (Kháng tiền ảnh 2):** Cho trước $x$, không thể tìm được $x' \\neq x$ sao cho $H(x) = H(x')$. Ứng dụng: Khóa liên kết khối (Block linking) trong chuỗi.\n
+3. **Collision Resistance (Kháng va chạm):** Không thể tìm bất kỳ cặp $(x, x')$ nào sao cho $H(x) = H(x')$. Ứng dụng: Định danh giao dịch duy nhất (TxID).\n
+💡 *Hiệu ứng thác đổ (Avalanche effect):* Đổi dù chỉ 1 bit đầu vào thì hơn 50% số bit đầu ra sẽ đảo lộn ngẫu nhiên.`
+          },
+          {
+            heading: '2. Cây Merkle & Bằng chứng O(log n)',
+            content: `Cây Merkle gom hàng nghìn giao dịch thành một Merkle Root 32 bytes duy nhất trong Block Header.\n
+- **Tại sao cần Merkle Tree?** Khi ví nhẹ (SPV Light client) cần kiểm tra giao dịch của mình có nằm trong block chứa $n = 1,024$ giao dịch hay không, nó chỉ cần tải $\\log_2(1,024) = 10$ mã băm anh em (sibling hashes, khoảng 320 bytes) thay vì tải toàn bộ khối!\n
+- **Nơi Merkle sinh sống:** SPV Light Wallets, Merkle-Patricia Trie trong Ethereum, Whitelist airdrop thông minh với OpenZeppelin \`MerkleProof\`, Rollups L2 cam kết trạng thái lên L1, và Bằng chứng dự trữ (Proof-of-Reserves) của sàn giao dịch CEX.`,
+            codeSnippet: `// Xác minh bằng chứng Merkle trên Solidity (OpenZeppelin):
+function isWhitelisted(bytes32[] calldata proof, bytes32 leaf) public view returns (bool) {
+    return MerkleProof.verify(proof, merkleRoot, leaf);
+}`
+          },
+          {
+            heading: '3. Chữ ký số ECDSA & Cây ví phân cấp (BIP-39 / BIP-32 / BIP-44)',
+            content: `* **ECDSA secp256k1:** Ký với Private Key $d$, xác minh bằng Public Key $Q = d \\times G$. Điểm độc đáo của Ethereum là hàm \`ecrecover(hash, v, r, s)\` có thể phục hồi trực tiếp ra địa chỉ ví người ký mà không cần gửi kèm Public Key trong giao dịch.\n
+* **Hệ sinh thái ví HD:**
+  - **BIP-39:** Sinh 12 - 24 từ khóa Mnemonic (Seed phrase) từ entropy ngẫu nhiên.
+  - **BIP-32:** Cây ví phân cấp (Hierarchical Deterministic), từ 1 Master Seed sinh ra cây khóa vô tận.
+  - **BIP-44:** Định dạng đường dẫn ví: \`m / 44' / coin_type' / account' / change / address_index\` (Ví dụ Ethereum: \`m/44'/60'/0'/0/0\`).`
+          }
+        ]
+      },
+      {
+        id: 'm3',
+        title: 'Bài 3: Bitcoin In-Depth & Nakamoto Consensus',
+        session: 'Session 4',
+        badge: 'Bitcoin Core',
+        icon: 'fa-bitcoin',
+        summary: 'Mô hình tiền lẻ UTXO vs Account, ngôn ngữ máy ngăn xếp Bitcoin Script cố ý không Turing-complete, thị trường phí sat/vB, RBF/CPFP, Đồng thuận Nakamoto và họ thuật toán BFT.',
+        sections: [
+          {
+            heading: '1. Mô hình UTXO (Unspent Transaction Output) vs Account Model',
+            content: `Bitcoin **hoàn toàn không có bảng số dư tài khoản** (account table) như ngân hàng!\n
+- **Ẩn dụ tiền lẻ polymer:** UTXO giống như các tờ tiền mệnh giá lẻ trong ví. Bạn có 1 tờ 500k (0.8 BTC), bạn muốn trả tiền ăn trưa 200k (0.5 BTC) cho Bob:
+  * Bạn nạp nguyên tờ 500k vào giao dịch (Input).
+  * Bạn tạo Output 0: 200k (0.5 BTC) chuyển cho Bob.
+  * Bạn tạo Output 1: 299k (0.2999 BTC) tiền thối (Change) gửi ngược về ví của chính mình.
+  * Phần còn lại: $500k - 200k - 299k = 1k$ (0.0001 BTC) chính là **Phí thợ đào ngầm định (Fee = ΣInput - ΣOutput)**.\n
+⚠️ *Cảnh báo sống còn:* Nếu lập trình viên quên viết Change Output, thợ đào sẽ húp trọn toàn bộ số tiền thừa đó!`
+          },
+          {
+            heading: '2. Ngôn ngữ Bitcoin Script: Cố ý "Không Turing-đầy đủ"',
+            content: `Bitcoin Script là ngôn ngữ lập trình dựa trên máy ngăn xếp (Stack machine), duyệt tuyến tính từ trái qua phải.\n
+- **Tại sao Satoshi cố tình LOẠI BỎ vòng lặp (No Loops / Deliberately NOT Turing-complete)?**
+  1. **Triệt tiêu bài toán dừng (Halting Problem):** Mã lệnh không có vòng lặp được chứng minh toán học là *luôn luôn dừng* (always halts) trong thời gian hữu hạn.
+  2. **Chống tấn công từ chối dịch vụ (Anti-DoS):** Hacker không thể tạo giao dịch chứa vòng lặp vô tận để làm treo các máy chủ node mạng.
+  3. **Không cần hệ thống đo Gas phức tạp:** Node xác thực giao dịch cực kỳ nhanh chóng và an toàn.`
+          },
+          {
+            heading: '3. Thị trường phí sat/vB & Nakamoto Consensus vs BFT',
+            content: `* **Phí sat/vB (Satoshi per virtual Byte):** Thợ đào chọn giao dịch dựa trên tỷ lệ phí trên kích thước (\`sat/vB\`), không quan tâm giá trị giao dịch lớn hay nhỏ.
+* **Giao dịch bị kẹt phí thấp?** 2 cách giải cứu: **RBF (Replace-By-Fee)** tăng phí giao dịch gốc hoặc **CPFP (Child-Pays-For-Parent)** tạo giao dịch con với mức phí cao để thợ đào gom cả giao dịch cha.\n
+* **Đồng thuận Nakamoto:** Chuỗi nặng nhất (Heaviest chain - tích lũy nhiều PoW nhất), mạng mở permissionless, tính chắc chắn xác suất (Probabilistic finality). Tấn công 51% chỉ có thể Reorg đảo ngược giao dịch quá khứ của chính kẻ tấn công (Double-spend), **KHÔNG THỂ tiêu trộm coin của người khác** vì không có Private Key!
+* **Họ BFT (PBFT, Tendermint):** Yêu cầu $n \\ge 3f + 1$, chốt khối tức thì (Instant finality), nhưng trao đổi tin nhắn bậc $O(n^2)$ nên chỉ phù hợp cho mạng vài chục đến vài trăm validator.`
+          }
+        ]
+      },
+      {
+        id: 'm4',
+        title: 'Bài 4: Ethereum, EVM & EIP-1559',
+        session: 'Session 5',
+        badge: 'EVM & Gas',
+        icon: 'fa-cube',
+        summary: 'Kiến trúc máy ảo EVM ngăn xếp 256-bit, hai loại tài khoản (EOA vs Contract), cơ chế định giá phí EIP-1559 (đốt BaseFee), Proof of Stake (Slots & Epochs) và MEV.',
+        sections: [
+          {
+            heading: '1. Kiến trúc Máy ảo EVM 256-bit & Hai loại Tài khoản',
+            content: `Ethereum là cỗ máy tính toàn cầu (World Computer) chuyển tiếp trạng thái thông qua cây Merkle-Patricia Trie (MPT).\n
+- **Tại sao EVM dùng Stack 256-bit?** Kích thước 256 bits (32 bytes) khớp tự nhiên với ngõ ra của hàm băm Keccak-256 và thuật toán đường cong elliptic secp256k1 mà không cần phân mảnh dữ liệu.\n
+- **Hai loại tài khoản trong Ethereum:**
+  * **EOA (Externally Owned Account):** Kiểm soát bởi Khóa bí mật (Private key), không chứa mã code, là thực thể duy nhất có quyền khởi tạo giao dịch.
+  * **Contract Account:** Điều khiển bởi mã bytecode EVM, chỉ phản ứng khi có cuộc gọi giao dịch, có vùng lưu trữ riêng (Storage trie).\n
+- **Bốn trường của một tài khoản:** \`{ nonce, balance, codeHash, storageRoot }\`. Số dư của bạn nằm trong World-State Trie của toàn mạng chứ không nằm trong app ví!`
+          },
+          {
+            heading: '2. Phân rã phí giao dịch EIP-1559 (London Upgrade)',
+            content: `$$\\text{EffectiveGasPrice} = \\text{BaseFee} + \\min(\\text{maxPriorityFee}, \\text{maxFee} - \\text{BaseFee})$$
+$$\\text{Tổng phí trả} = \\text{GasUsed} \\times \\text{EffectiveGasPrice}$$
+- **BaseFee (Phí cơ sở):** Tự động điều chỉnh theo độ đầy của khối trước. Điểm cốt lõi: **Toàn bộ lượng ETH của BaseFee bị ĐỐT CHÁY (Burned)** vĩnh viễn khỏi nguồn cung lưu thông!\n
+- **PriorityFee (Tip):** Khoản tiền bo trực tiếp gửi cho validator đề xuất khối để được ưu tiên xử lý sớm.\n
+*Chi phí sàn (Intrinsic cost):* Một giao dịch chuyển ETH đơn giản luôn tốn cố định tối thiểu **21,000 gas**.`
+          },
+          {
+            heading: '3. Proof of Stake (Slots, Epochs) & Khái niệm MEV',
+            content: `* **Proof of Stake trên Ethereum:**
+  - Thời gian chia thành **Slot (12 giây)** và **Epoch (32 slots ≈ 6.4 phút)**.
+  - Validator cần khóa cọc tối thiểu **32 ETH**.
+  - Finality đạt được sau ~2 epoch (12.8 phút) khi $\\ge 2/3$ tổng số stake biểu quyết đồng thuận.
+  - Vi phạm đề xuất 2 khối xung đột sẽ bị **Slashing** (tịch thu stake và trục xuất khỏi mạng).\n
+* **MEV (Maximal Extractable Value):** Lợi nhuận tối đa mà validator/searcher bot có thể kiếm được bằng cách chèn, loại bỏ hoặc sắp xếp lại thứ tự các giao dịch swap trên sàn DEX (Frontrunning, Sandwich attack).`
+          }
+        ]
+      },
+      {
+        id: 'm5',
+        title: 'Bài 5: Smart Contract Engineering & Tooling',
+        session: 'Session 6',
+        badge: 'Solidity Dev',
+        icon: 'fa-code',
+        summary: 'Giải phẫu chi tiết một hợp đồng Solidity, vòng lặp phát triển Hardhat (compile, test, deploy, interact), phân định 3 vị trí dữ liệu Storage vs Memory vs Calldata và tối ưu hóa Gas.',
+        sections: [
+          {
+            heading: '1. Giải phẫu một hợp đồng Solidity (Contract Anatomy)',
+            content: `Một hợp đồng thông minh là một chương trình được triển khai tại một địa chỉ xác định; các hàm public của nó chính là API.\n
+**Cấu trúc các khối thành phần:**
+- **SPDX-License-Identifier & pragma solidity ^0.8.x:** Khai báo giấy phép và phiên bản trình biên dịch (bản 0.8+ tự động revert khi bị tràn số overflow).
+- **Biến trạng thái (State variables):** Sống vĩnh viễn trên chuỗi ở vùng STORAGE trie, tốn rất nhiều gas khi ghi mới (~20,000 gas/slot).
+- **Hằng số immutable / constant:** Nhúng trực tiếp vào bytecode hợp đồng, đọc gần như miễn phí gas và không chiếm ô nhớ storage.
+- **Constructor:** Chạy ĐÚNG MỘT LẦN duy nhất khi deploy.
+- **Modifiers (ví dụ onlyOwner):** Tái sử dụng đoạn mã kiểm tra quyền hạn trước khi cho phép thực thi hàm.
+- **Events / Logs:** Lưu vào biên nhận hóa đơn (receipt) của block, rẻ hơn storage rất nhiều, frontend có thể lắng nghe real-time qua WebSocket nhưng smart contract không thể đọc ngược lại events.`
+          },
+          {
+            heading: '2. Vị trí dữ liệu trong thực tế: Calldata vs Memory vs Storage',
+            content: `Việc lựa chọn sai vị trí lưu trữ dữ liệu (Data Location) là nguyên nhân hàng đầu gây lãng phí gas nghìn đô:\n
+1. **Calldata:** Vùng nhớ CHỈ-ĐỌC (read-only), chứa tham số truyền vào hàm từ giao dịch bên ngoài. **Rẻ nhất vì không tốn công sao chép (no copy)**. Luôn ưu tiên dùng \`calldata\` cho tham số mảng/chuỗi của hàm external!
+2. **Memory:** Mảng byte TẠM THỜI, dữ liệu sẽ bị xóa sạch ngay sau khi lệnh gọi kết thúc. Dùng khi bạn cần chỉnh sửa một bản sao dữ liệu trong lúc hàm đang chạy.
+3. **Storage:** Vùng lưu trữ VĨNH VIỄN trên blockchain. Ghi dữ liệu vào storage là thao tác đắt đỏ nhất trong toàn bộ EVM opcode (\`SSTORE\` tốn tới 20,000 gas).\n
+💡 *Quy tắc vàng:* Không bao giờ ghi dữ liệu vào storage trừ khi dữ liệu đó bắt buộc phải sống sót qua giao dịch tiếp theo!`,
+            codeSnippet: `// Minh họa tối ưu Calldata vs Storage trong Solidity:
+contract ClassRegistry {
+    address public immutable owner;
+    mapping(address => string) private _names;
+
+    constructor() {
+        owner = msg.sender;
+    }
+
+    // Dùng calldata cho tham số chỉ-đọc để tiết kiệm gas tối đa:
+    function register(string calldata name) external {
+        _names[msg.sender] = name; // Copy từ calldata vào storage
+    }
+}`
+          },
+          {
+            heading: '3. Vòng lặp phát triển Hardhat (The Hardhat Loop)',
+            content: `Quy trình chuyên nghiệp chuẩn công nghiệp khi xây dựng Web3 DApps:
+1. **Compile:** \`npx hardhat compile\` biên dịch Solidity ra ABI và EVM Bytecode.
+2. **Test (Chai + loadFixture):** Viết unit tests kiểm thử 100% các nhánh logic:
+   - Dùng \`loadFixture\` để chụp snapshot trạng thái mạng local, giúp chạy hàng trăm test cases trong vài giây mà không cần deploy lại từ đầu.
+3. **Deploy:** Viết script triển khai hợp đồng lên Testnet/Mainnet bằng Ethers.js.
+4. **Interact:** Đọc ghi trạng thái hợp đồng thông qua JSON-RPC Provider.`
+          }
+        ]
+      },
+      {
+        id: 'm6',
+        title: 'Bài 6: Reusable Token Standards & NFT',
+        session: 'Session 7',
+        badge: 'Token Standards',
+        icon: 'fa-coins',
+        summary: 'Bản chất chuẩn giao diện Token, ERC-20 và rủi ro approve/transferFrom, NFT ERC-721 on-chain SVG metadata, ERC-1155 đa token, EIP-2612 Permit và OpenZeppelin Wizard.',
+        sections: [
+          {
+            heading: '1. Chuẩn Token là gì? ERC-20 & Sơ đồ 2 bước Approve / TransferFrom',
+            content: `Token KHÔNG PHẢI là một loại coin đặc biệt! Token thực chất chỉ là một hợp đồng thông minh quản lý một sổ cái số dư \`mapping(address => uint256)\`.\n
+- **Quy trình 2 bước khi giao dịch trên sàn DEX:**
+  * Bước 1: Alice gọi \`approve(DEX, 100 CTK)\` -> ghi nhận allowance[Alice][DEX] = 100.
+  * Bước 2: Alice gọi sàn DEX -> Hợp đồng DEX chủ động gọi \`transferFrom(Alice, DEX, 100)\` để kéo token vào pool swap.
+- **Tại sao cần 2 bước?** Hàm \`transfer()\` đơn thuần chỉ đổi số dư mà không thể kích hoạt mã lệnh phản ứng tại hợp đồng nhận. \`transferFrom()\` cho phép sàn DEX kéo token ngay trong cùng 1 giao dịch swap.\n
+⚠️ **Hiểm họa Cấp quyền Vô hạn (Infinite Approval):** Lệnh \`approve(DEX, 2^256 - 1)\` giúp tiết kiệm gas cho lần sau nhưng nếu sàn DEX bị lỗi bảo mật, hacker có thể rút sạch toàn bộ ví của bạn mà không cần chữ ký mới!`
+          },
+          {
+            heading: '2. EIP-2612 Permit & OpenZeppelin SafeERC20',
+            content: `* **EIP-2612 Permit (Gasless Approval):** Cho phép người dùng ký một thông điệp ngoài chuỗi (Off-chain ECDSA signature EIP-712). Sau đó, relayer hoặc sàn DEX sẽ nộp chữ ký này vào hàm \`permit()\` để cấp allowance và swap trong đúng 1 giao dịch duy nhất!\n
+* **Token lệch chuẩn & Thư viện SafeERC20:**
+  - Chuẩn ERC-20 quy định \`transfer()\` trả về boolean \`true/false\`. Nhưng các token đời đầu như **USDT (Tether)** không trả về gì cả!
+  - Lệnh gọi thông thường \`require(token.transfer(...))\` sẽ bị revert khi tương tác với USDT.
+  - Giải pháp: Luôn luôn sử dụng thư viện **SafeERC20** của OpenZeppelin (\`safeTransfer\`, \`safeTransferFrom\`) để tự động bọc và xử lý trường hợp không trả về boolean.`,
+            codeSnippet: `// Khởi tạo ERC-20 nhanh chuẩn mực với OpenZeppelin Contracts v5:
+import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
+
+contract ClassToken is ERC20 {
+    constructor() ERC20("ClassToken", "CTK") {
+        _mint(msg.sender, 1_000_000 * 10 ** decimals());
+    }
+}`
+          },
+          {
+            heading: '3. NFT ERC-721, ERC-1155 & Quy tắc ngón tay cái chọn chuẩn',
+            content: `* **ERC-721 (Non-Fungible Token):** Mỗi token có một định danh duy nhất \`tokenId\`. Quyền sở hữu ánh xạ qua \`ownerOf(tokenId)\`.\n
+* **Metadata sống ở đâu?**
+  - **Cách A - IPFS (Off-chain):** Trỏ URI về IPFS gateway. Rẻ gas nhưng nếu dữ liệu không được duy trì (pinning discipline), ảnh và metadata sẽ biến mất vĩnh viễn!
+  - **Cách B - On-chain data-URI:** Dữ liệu JSON và hình vẽ SVG được nén Base64 lưu trực tiếp on-chain trong hàm \`tokenURI()\`. Bất tử theo blockchain mà không cần server ngoài.\n
+* **ERC-1155 (Multi-Token Standard):** Quản lý đồng thời cả Fungible và Non-fungible token trong cùng 1 contract, hỗ trợ chuyển theo lô (batch transfer) tiết kiệm gas vượt trội cho game Web3.\n
+🎯 **Quy tắc ngón tay cái (Rule of Thumb):**
+- Đòi hỏi tính toán số lượng ("how much"): 👉 **Dùng ERC-20** (tiền, điểm thưởng, cổ phần).
+- Đòi hỏi định danh độc bản ("which one"): 👉 **Dùng ERC-721** (bằng chứng chỉ, thẻ độc nhất, bất động sản).
+- Đòi hỏi danh mục nhiều loại vật phẩm ("a catalogue"): 👉 **Dùng ERC-1155** (vật phẩm game, trang bị RPG, vé sự kiện theo lô).`
+          }
+        ]
+      },
+      {
+        id: 'm7',
+        title: 'Bài 7: Smart Contract Security & Nâng cao',
+        session: 'Session 8 & Lab/Seminars',
+        badge: 'Bảo mật Web3',
+        icon: 'fa-shield-halved',
+        summary: 'Mổ xẻ vụ hack The DAO lịch sử, lỗ hổng Reentrancy và mẫu thiết kế CEI (Checks-Effects-Interactions), Static Analysis Slither, Fuzzing Echidna, bài tập Block Halving 840,000 và 12 đề tài Seminar.',
+        sections: [
+          {
+            heading: '1. Vụ hack The DAO & Lỗ hổng Tái thâm nhập (Reentrancy)',
+            content: `Reentrancy xảy ra khi một hợp đồng thực hiện cuộc gọi gửi tiền ra ngoài (\`external call\`) TRƯỚC KHI cập nhật số dư nội bộ của tài khoản người rút.\n
+- **Cơ chế cuộc tấn công:**
+  1. Kẻ tấn công tạo một hợp đồng độc hại có chứa hàm \`receive()\` hoặc \`fallback()\`.
+  2. Nạn nhân gửi ETH qua lệnh \`msg.sender.call{value: amount}("")\`.
+  3. Trước khi dòng trừ tiền \`balances[msg.sender] = 0\` được thi hành, quyền kiểm soát chuyển sang hàm \`receive()\` của hacker.
+  4. Hàm của hacker lập tức gọi ngược lại hàm \`withdraw()\` của nạn nhân.
+  5. Vòng lặp đệ quy tiếp diễn cho đến khi kho bạc cạn kiệt! Vụ hack The DAO năm 2016 đã làm thất thoát 3.6 triệu ETH.\n
+- **Khắc phục triệt để:** Áp dụng mẫu thiết kế **CEI Pattern (Checks-Effects-Interactions)**: Luôn trừ số dư nội bộ TRƯỚC, rồi mới thực hiện lệnh gửi tiền ra ngoài! Hoặc gắn modifier \`nonReentrant\` từ \`ReentrancyGuard\` của OpenZeppelin.`,
+            codeSnippet: `// Mẫu thiết kế an toàn CEI (Checks - Effects - Interactions):
+function safeWithdraw() external {
+    uint256 amount = balances[msg.sender];
+    require(amount > 0, "So du khong du"); // 1. CHECKS
+    
+    balances[msg.sender] = 0;              // 2. EFFECTS (Cập nhật trạng thái TRƯỚC)
+    
+    (bool success, ) = msg.sender.call{value: amount}(""); // 3. INTERACTIONS (Gọi ngoài sau cùng)
+    require(success, "Chuyen tien that bai");
+}`
+          },
+          {
+            heading: '2. Danh mục kiểm tra viết mã an toàn & Triết lý "Audited != Safe"',
+            content: `* **Secure-Coding Checklist:**
+  - Luôn tuân thủ CEI và gắn guard \`nonReentrant\` cho các hàm luân chuyển tiền.
+  - Phân quyền rõ ràng (\`Ownable2Step\`, \`AccessControl\`), không dùng \`tx.origin\` để xác thực quyền.
+  - Kiểm tra đầu vào: Địa chỉ 0x0, số tiền 0, độ dài mảng.
+  - Luôn nhân trước chia sau (\`multiply-before-divide\`) để tránh mất độ chính xác số nguyên.
+  - Tích hợp công cụ tự động hóa: **Slither** (Static Analysis) quét AST, **Echidna** (Fuzzing) kiểm tra Invariant, **Certora** (Formal Verification) chứng minh toán học.\n
+* **Tại sao "Audited != Safe"?** Kiểm toán chỉ là đánh giá code tại một ảnh chụp thời điểm (snapshot). Đa số các vụ tổn thất hàng trăm triệu đô (như cầu nối Ronin $625M) bắt nguồn từ **lộ khóa Private Key của validator** qua lừa đảo xã hội (phishing), chứ không phải do lỗi Solidity!`
+          },
+          {
+            heading: '3. Bài tập Block Halving 840,000 & 12 Đề tài Seminar',
+            content: `* **Lab Block 840,000 (Halving thứ 4 của Bitcoin):**
+  - Mổ xẻ 80-byte header: Giải mã trường \`bits\` ra \`target\` PoW, thực hiện băm đúp \`dSHA-256(header) < target\`.
+  - Phân tích hiện tượng tranh đua đúc Runes khiến phí thợ đào tăng kỷ lục hơn 37.6 BTC chỉ trong 1 block duy nhất.\n
+* **12 Đề tài Seminar tiêu biểu:**
+  1. L2 Deep-dive (Arbitrum vs Base: Optimistic Rollups vs ZK-Rollups).
+  2. Hậu phẫu thuật toán sụp đổ Terra/Luna (UST Death Spiral).
+  3. Mổ xẻ vụ hack Ronin Network ($625M do lộ 5/9 validator key).
+  4. Tài sản thế giới thực (RWA - BlackRock BUIDL trên Ethereum).
+  5. Ứng dụng ZK Proofs & Bảo mật danh tính on-chain.
+  6. Restaking & EigenLayer (Chia sẻ bảo mật kinh tế cho AVS).
+  7. Trừu tượng hóa tài khoản (Account Abstraction ERC-4337 & EIP-7702).
+  8. Giao thức thanh toán tự động cho AI Agent (x402).
+  9. Khung pháp lý quản lý tài sản số tại Việt Nam 2025-2026.
+  10. So sánh quy định pháp lý Stablecoin: MiCA (Châu Âu) vs GENIUS (Mỹ).
+  11. Mở rộng mạng lưới Bitcoin: Lightning Network và BitVM.
+  12. Kinh tế học mạng lưới hạ tầng vật lý phi tập trung (DePIN - Helium, Hivemapper).`
+          }
+        ]
+      }
+    ];
+
+    const QUESTION_BANK = [
+      // Bài 1
+      {
+        id: 1,
+        moduleId: 'm1',
+        moduleTitle: 'Bài 1: Distributed Systems & Blockchain 101',
+        question: 'Trong các hệ thống phân tán, sự cố Byzantine (Byzantine faults) khác biệt thế nào so với sự cố dừng hoạt động (Fail-stop faults)?',
+        options: [
+          'Byzantine faults xảy ra khi ổ cứng hết dung lượng lưu trữ.',
+          'Fail-stop faults là các nút ngừng hoạt động; còn Byzantine faults là các nút hành xử ác ý, nói dối hoặc gửi thông điệp mâu thuẫn.',
+          'Fail-stop faults chỉ xảy ra trên mạng Bitcoin; còn Byzantine faults chỉ có trên Ethereum.',
+          'Hai loại lỗi này hoàn toàn giống nhau về mặt thuật toán đồng thuận.'
+        ],
+        answer: 1,
+        explanation: 'Fail-stop (Crash fault) là khi một nút bị sập và ngắt kết nối hoàn toàn. Byzantine fault khó giải quyết hơn rất nhiều vì nút đó vẫn gửi tin nhắn nhưng là tin nhắn gian lận hoặc mâu thuẫn.'
+      },
+      {
+        id: 2,
+        moduleId: 'm1',
+        moduleTitle: 'Bài 1: Distributed Systems & Blockchain 101',
+        question: 'DApps (Decentralized Applications) Type 2 được định nghĩa là loại ứng dụng nào sau đây?',
+        options: [
+          'DApp chạy trên blockchain độc lập của riêng nó (như Bitcoin).',
+          'DApp sử dụng một blockchain công khai có sẵn (như Uniswap chạy trên Ethereum).',
+          'DApp chỉ hoạt động trên mạng nội bộ LAN của doanh nghiệp.',
+          'DApp sử dụng giao thức con của một ứng dụng Type 2 khác.'
+        ],
+        answer: 1,
+        explanation: 'Theo chuẩn phân loại DApp: Type 1 chạy trên blockchain riêng (Bitcoin, Ethereum), Type 2 dùng blockchain công khai có sẵn (Uniswap trên Ethereum), Type 3 dùng giao thức của Type 2.'
+      },
+
+      // Bài 2
+      {
+        id: 3,
+        moduleId: 'm2',
+        moduleTitle: 'Bài 2: Applied Cryptography & Merkle Tree',
+        question: 'Một khối chứa 1,024 giao dịch. Khi một ví nhẹ (SPV Client) muốn xác minh giao dịch của mình có trong khối hay không thông qua Cây Merkle, số lượng mã băm anh em (sibling hashes) cần kiểm tra là bao nhiêu?',
+        options: [
+          '1,024 mã băm (toàn bộ khối)',
+          '512 mã băm',
+          '10 mã băm (vì log2(1024) = 10)',
+          '1 mã băm duy nhất'
+        ],
+        answer: 2,
+        explanation: 'Cây Merkle cho phép xác minh với độ phức tạp O(log2 n). Với n = 1,024, ta chỉ cần đúng log2(1024) = 10 mã băm anh em (tương đương 320 bytes) thay vì tải toàn bộ khối.'
+      },
+      {
+        id: 4,
+        moduleId: 'm2',
+        moduleTitle: 'Bài 2: Applied Cryptography & Merkle Tree',
+        question: 'Điều gì sau đây là ĐÚNG khi nói về chữ ký ECDSA và hàm ecrecover trong mạng Ethereum?',
+        options: [
+          'Hàm ecrecover cho phép khôi phục lại Private Key của người gửi giao dịch.',
+          'Giao dịch Ethereum không cần gửi kèm Public Key, hàm ecrecover(hash, v, r, s) suy ngược ra trực tiếp địa chỉ ví người ký.',
+          'ECDSA trong Ethereum sử dụng đường cong ed25519.',
+          'Chữ ký số có thể bị đảo ngược bằng cách giải câu đố Proof of Work.'
+        ],
+        answer: 1,
+        explanation: 'Ethereum tận dụng tính chất khôi phục khóa công khai của thuật toán ECDSA secp256k1 thông qua tham số (v, r, s) để hàm ecrecover suy ngược ra ngay địa chỉ người ký mà không cần tốn dung lượng chứa Public Key trong transaction.'
+      },
+
+      // Bài 3
+      {
+        id: 5,
+        moduleId: 'm3',
+        moduleTitle: 'Bài 3: Bitcoin & Nakamoto Consensus',
+        question: 'Alice có 1 UTXO trị giá 0.8 BTC. Cô gửi Bob 0.5 BTC với mức phí thợ đào là 0.0001 BTC. Các Output của giao dịch này sẽ là gì?',
+        options: [
+          'Chỉ 1 output duy nhất: 0.5 BTC gửi cho Bob.',
+          'Output 0: 0.5 BTC cho Bob; Output 1: 0.2999 BTC tiền thối về Alice.',
+          'Output 0: 0.5 BTC cho Bob; Output 1: 0.3 BTC về Alice; Output 2: 0.0001 BTC cho thợ đào.',
+          'Output 0: 0.5 BTC cho Bob; Output 1: 0.0001 BTC cho thợ đào.'
+        ],
+        answer: 1,
+        explanation: 'Trong mô hình UTXO: Phí thợ đào là phần dư NGẦM ĐỊNH (Implicit fee = Input - Output). Ta có: 0.8 - 0.5 - 0.0001 = 0.2999 BTC tiền thối gửi về ví của Alice. Không tạo output riêng cho thợ đào.'
+      },
+      {
+        id: 6,
+        moduleId: 'm3',
+        moduleTitle: 'Bài 3: Bitcoin & Nakamoto Consensus',
+        question: 'Tại sao ngôn ngữ Bitcoin Script lại được thiết kế cố ý "KHÔNG Turing-đầy đủ" (Deliberately NOT Turing-complete)?',
+        options: [
+          'Vì thời điểm năm 2008 vi xử lý chưa đủ RAM để tính toán.',
+          'Để không có vòng lặp (no loops), mã lệnh luôn luôn dừng (always halts), triệt tiêu bài toán Halting Problem và chống DoS node.',
+          'Để ép buộc lập trình viên phải chuyển tài sản sang mạng Ethereum.',
+          'Vì máy ngăn xếp stack machine không thể hỗ trợ các lệnh mã hóa SHA-256.'
+        ],
+        answer: 1,
+        explanation: 'Không có vòng lặp đồng nghĩa với việc thời gian chạy luôn hữu hạn và luôn dừng, tránh hoàn toàn nguy cơ hacker viết vòng lặp vô tận làm đơ mạng, đồng thời không cần cơ chế đo đếm Gas phức tạp.'
+      },
+
+      // Bài 4
+      {
+        id: 7,
+        moduleId: 'm4',
+        moduleTitle: 'Bài 4: Ethereum, EVM & EIP-1559',
+        question: 'Tại sao máy ảo EVM của Ethereum lại được thiết kế dựa trên kiến trúc ngăn xếp 256-bit (Word size = 256 bits)?',
+        options: [
+          'Vì kích thước này khớp tự nhiên với kích thước đầu ra của hàm băm Keccak-256 (32 bytes) và các phép toán đường cong elliptic secp256k1.',
+          'Vì card đồ họa của thợ đào chỉ tương thích với hệ vi xử lý 256-bit.',
+          'Để ngăn cản các hacker sử dụng vi xử lý card màn hình NVIDIA.',
+          'Do quy chuẩn chung bắt buộc từ tập đoàn Microsoft và W3C.'
+        ],
+        answer: 0,
+        explanation: '256 bits (32 bytes) là độ dài tiêu chuẩn của các hàm mã hóa cốt lõi trong Ethereum (Keccak-256 và tọa độ điểm secp256k1), giúp việc tính toán diễn ra tự nhiên mà không cần chia nhỏ dữ liệu.'
+      },
+      {
+        id: 8,
+        moduleId: 'm4',
+        moduleTitle: 'Bài 4: Ethereum, EVM & EIP-1559',
+        question: 'Trong cơ chế định giá phí EIP-1559 của mạng Ethereum, khoản BaseFee sẽ đi về đâu?',
+        options: [
+          'Được trả cho Validator đề xuất khối làm tiền thưởng.',
+          'Bị đốt cháy vĩnh viễn (Burned) khỏi nguồn cung lưu thông của ETH.',
+          'Được chuyển vào quỹ bảo hiểm Proof of Stake.',
+          'Được hoàn lại 100% cho người gửi giao dịch.'
+        ],
+        answer: 1,
+        explanation: 'Theo chuẩn EIP-1559, BaseFee bị đốt cháy (Burned) hoàn toàn để triệt tiêu động cơ thợ đào bắt tay nhau spam giao dịch giả tạo đẩy giá phí. Validator chỉ nhận được khoản tiền bo Priority Tip.'
+      },
+
+      // Bài 5 (Session 6)
+      {
+        id: 9,
+        moduleId: 'm5',
+        moduleTitle: 'Bài 5: Smart Contract Engineering & Tooling',
+        question: 'Khi khai báo tham số dạng chuỗi (string) hoặc mảng (array) trong một hàm external CHỈ-ĐỌC của Solidity, vị trí lưu trữ (data location) nào giúp TIẾT KIỆM GAS NHẤT?',
+        options: [
+          'storage',
+          'memory',
+          'calldata',
+          'stack'
+        ],
+        answer: 2,
+        explanation: 'calldata là vùng nhớ chỉ-đọc (read-only) trỏ trực tiếp vào dữ liệu gửi từ giao dịch bên ngoài mà không cần tốn gas sao chép dữ liệu vào bộ nhớ tạm thời như memory.'
+      },
+      {
+        id: 10,
+        moduleId: 'm5',
+        moduleTitle: 'Bài 5: Smart Contract Engineering & Tooling',
+        question: 'Trong quy trình kiểm thử với Hardhat (The Hardhat Loop), phương thức loadFixture giúp mang lại lợi ích cốt lõi nào?',
+        options: [
+          'Tự động sửa lỗi reentrancy trong mã nguồn Solidity.',
+          'Chụp snapshot trạng thái mạng thử nghiệm, giúp reset nhanh chóng giữa các test cases mà không cần deploy lại hợp đồng từ đầu.',
+          'Tự động gửi token miễn phí từ sàn giao dịch về ví testnet.',
+          'Dịch mã Solidity trực tiếp sang mã nhị phân x86 Intel.'
+        ],
+        answer: 1,
+        explanation: 'loadFixture của Hardhat Network Helpers giúp reset trạng thái chuỗi về một điểm snapshot cố định cực kỳ nhanh, giúp hàng trăm unit tests chạy trong vài giây thay vì phải tốn thời gian deploy lại.'
+      },
+
+      // Bài 6 (Session 7)
+      {
+        id: 11,
+        moduleId: 'm6',
+        moduleTitle: 'Bài 6: Reusable Token Standards & NFT',
+        question: 'Theo quy tắc ngón tay cái (Rule of thumb) về việc lựa chọn chuẩn token: Khi bài toán yêu cầu quản lý danh mục nhiều loại vật phẩm trong game theo lô ("a catalogue"), chuẩn token nào là tối ưu nhất?',
+        options: [
+          'ERC-20 ("how much")',
+          'ERC-721 ("which one")',
+          'ERC-1155 ("a catalogue")',
+          'EIP-2612'
+        ],
+        answer: 2,
+        explanation: 'Quy tắc ngón tay cái: "how much" -> ERC-20 (tiền, điểm); "which one" -> ERC-721 (vật phẩm độc nhất); "a catalogue" -> ERC-1155 (danh mục nhiều vật phẩm, hỗ trợ batch transfer tiết kiệm gas).'
+      },
+      {
+        id: 12,
+        moduleId: 'm6',
+        moduleTitle: 'Bài 6: Reusable Token Standards & NFT',
+        question: 'Chuẩn EIP-2612 Permit giải quyết vấn đề gì của cơ chế 2 bước approve / transferFrom trong ERC-20?',
+        options: [
+          'Cho phép cấp quyền allowance bằng chữ ký ngoài chuỗi (off-chain signature), gom việc cấp quyền và chuyển tiền vào đúng 1 giao dịch duy nhất.',
+          'Tăng tổng cung token lên gấp đôi mà không cần thông qua biểu quyết.',
+          'Ngăn chặn token bị swap trên các sàn giao dịch phi tập trung DEX.',
+          'Tự động chuyển đổi NFT ERC-721 thành token ERC-20.'
+        ],
+        answer: 0,
+        explanation: 'EIP-2612 Permit cho phép người dùng ký xác nhận off-chain (EIP-712), sau đó nộp chữ ký vào hợp đồng để cấp quyền và chuyển token trong cùng 1 transaction, loại bỏ sự rườm rà của 2 giao dịch riêng biệt.'
+      },
+
+      // Bài 7 (Session 8 & Lab)
+      {
+        id: 13,
+        moduleId: 'm7',
+        moduleTitle: 'Bài 7: Smart Contract Security & Nâng cao',
+        question: 'Mẫu thiết kế nào sau đây là nguyên tắc vàng để phòng chống triệt để lỗ hổng Tái thâm nhập (Reentrancy attack)?',
+        options: [
+          'Interactions -> Checks -> Effects',
+          'Checks -> Effects -> Interactions (CEI Pattern)',
+          'Effects -> Interactions -> Checks',
+          'Sử dụng tx.origin thay thế cho msg.sender'
+        ],
+        answer: 1,
+        explanation: 'Quy tắc CEI: 1. Checks (kiểm tra điều kiện require), 2. Effects (cập nhật số dư nội bộ trước), 3. Interactions (mới thực hiện gọi chuyển tiền ra ngoài). Việc trừ tiền trước sẽ khiến kẻ tấn công khi re-enter bị revert vì số dư đã bằng 0.'
+      },
+      {
+        id: 14,
+        moduleId: 'm7',
+        moduleTitle: 'Bài 7: Smart Contract Security & Nâng cao',
+        question: 'Tại sao trong giới bảo mật Web3 có câu châm ngôn nổi tiếng "Audited != Safe" (Đã kiểm toán không đồng nghĩa với an toàn)?',
+        options: [
+          'Vì các công ty kiểm toán luôn tìm cách che giấu lỗi mã nguồn để bán khóa học.',
+          'Vì kiểm toán chỉ là đánh giá code tại một ảnh chụp thời điểm (snapshot), các vụ hack lớn thường nảy sinh do lộ private key validator, cấu hình deploy sai hoặc thao túng Oracle ngoài phạm vi.',
+          'Vì mã nguồn Solidity không thể dịch sang mã máy bytecode an toàn.',
+          'Vì mạng blockchain không bao giờ có thể thẩm định chữ ký số.'
+        ],
+        answer: 1,
+        explanation: 'Kiểm toán chỉ xác nhận code không có lỗi logic rõ ràng tại thời điểm xem xét. Rất nhiều vụ tổn thất kỷ lục (như vụ Ronin $625M) là do lộ private key validator hoặc thao túng giá qua Flash Loan Oracle.'
+      }
+    ];
+
+    const TUTOR_KNOWLEDGE_BASE = [
+      {
+        keywords: ['phân biệt', 'bài 6', 'bài 7', 'session 6', 'session 7', 'engineering', 'standards', 'khác nhau'],
+        answer: `🔄 **Phân biệt rõ ràng giữa Bài 5 (Session 6) và Bài 6 (Session 7):**\n
+- **Bài 5 (Session 6: Smart Contract Engineering & Tooling):** Tập trung vào **Kỹ thuật công nghệ và công cụ phát triển**.
+  * Giải phẫu hợp đồng thông minh: Constructor, immutable, state variables, modifiers, events.
+  * Phân biệt 3 vùng dữ liệu trong EVM: **Storage vs Memory vs Calldata**.
+  * Vòng lặp phát triển Hardhat Loop: Biên dịch (compile), viết test (Chai + loadFixture), deploy và tương tác.\n
+- **Bài 6 (Session 7: Reusable Token Standards & NFT):** Tập trung vào **Các tiêu chuẩn tài sản số có thể tái sử dụng**.
+  * Chuẩn ERC-20: Sổ cái số dư mapping, cơ chế 2 bước approve/transferFrom và giải pháp EIP-2612 Permit.
+  * Chuẩn NFT ERC-721: TokenId độc bản, lưu trữ metadata on-chain (SVG data-URI) vs off-chain (IPFS).
+  * Chuẩn ERC-1155 đa token: Gom cả fungible và non-fungible trong 1 contract, hỗ trợ batch transfer tiết kiệm gas.
+  * Quy tắc ngón tay cái: "how much" -> 20, "which one" -> 721, "a catalogue" -> 1155.`
+      },
+      {
+        keywords: ['quy tắc', 'ngón tay cái', 'how much', 'which one', 'a catalogue', 'chọn chuẩn', 'token nào'],
+        answer: `🎯 **Quy tắc ngón tay cái (Rule of thumb) chọn chuẩn Token (Slide 31 Session 7):**\n
+1. **"how much" (Hỏi "bao nhiêu"): 👉 Dùng ERC-20**
+   - Áp dụng cho: Tiền tệ, điểm thưởng, cổ phần, token thanh toán có thể hoán đổi đơn vị tương đương (Fungible tokens: 1 CTK = 1 CTK).
+2. **"which one" (Hỏi "cái nào / con nào"): 👉 Dùng ERC-721**
+   - Áp dụng cho: Vật phẩm độc nhất vô nhị (Non-fungible token: tokenId riêng biệt, chứng chỉ sinh viên, tranh ảnh nghệ thuật số).
+3. **"a catalogue" (Hỏi "một danh mục / một lô"): 👉 Dùng ERC-1155**
+   - Áp dụng cho: Nhiều loại item khác nhau, game RPG (vừa có vàng ERC-20, vừa có kiếm/giáp ERC-721), hỗ trợ chuyển hàng loạt theo lô (batch transfer) tiết kiệm gas.`
+      },
+      {
+        keywords: ['utxo', 'tiền lẻ', '0.8', '0.5', 'slide 19', 'change', 'tiền thối', 'thợ đào', 'fee'],
+        answer: `💵 **Mô hình UTXO (Unspent Transaction Output) qua ví dụ thực tế (Slide 19 Session 4):**\n
+Trong Bitcoin, **không hề có khái niệm số dư tài khoản** như ngân hàng, mà là các tờ tiền mệnh giá lẻ (UTXO):\n
+- Alice sở hữu 1 tờ UTXO 0.8 BTC. Cô muốn trả bát phở 0.5 BTC cho Bob với phí thợ đào là 0.0001 BTC:
+  1. **Input:** Nạp nguyên tờ UTXO 0.8 BTC vào giao dịch.
+  2. **Output 0:** 0.5 BTC chuyển cho Bob.
+  3. **Output 1:** 0.2999 BTC gửi tiền thối (Change) về lại địa chỉ mới của Alice.
+  4. **Phí thợ đào ngầm định (Implicit Fee):** $0.8 - (0.5 + 0.2999) = 0.0001 BTC$.\n
+⚠️ **Lưu ý:** Không có lệnh "chuyển phí" riêng biệt. Nếu bạn quên không viết Output tiền thối, thợ đào sẽ tự động lấy toàn bộ số tiền thừa đó!`
+      },
+      {
+        keywords: ['script', 'turing', 'vòng lặp', 'loop', 'halting', 'dừng'],
+        answer: `⚙️ **Tại sao Bitcoin Script cố ý KHÔNG Turing-đầy đủ (Not Turing-complete)?**\n
+Satoshi Nakamoto đã loại bỏ các vòng lặp (\`for\`, \`while\`) vì 3 nguyên nhân cốt tử:
+1. **Triệt tiêu bài toán dừng (Halting Problem):** Một chương trình không có vòng lặp được chứng minh toán học là luôn luôn dừng trong thời gian hữu hạn.
+2. **Chống tấn công từ chối dịch vụ (Anti-DoS):** Hacker không thể tạo ra giao dịch có vòng lặp vô tận để làm treo các máy chủ node mạng.
+3. **Đơn giản & Không cần Gas:** Node xác thực giao dịch cực kỳ nhanh chóng mà không cần xây dựng cơ chế đo đếm Gas phức tạp như Ethereum.`
+      },
+      {
+        keywords: ['calldata', 'memory', 'storage', 'data location', 'tiết kiệm gas'],
+        answer: `📦 **Phân biệt Calldata vs Memory vs Storage trong Solidity (Slide 18 Session 6):**\n
+- **Calldata:** Vùng nhớ CHỈ-ĐỌC, chứa trực tiếp tham số gửi từ giao dịch bên ngoài. **Rẻ nhất vì không tốn công copy**. Luôn ưu tiên dùng cho tham số mảng/chuỗi của hàm external!
+- **Memory:** Vùng nhớ tạm thời, dữ liệu bị giải phóng ngay sau khi hàm thực thi xong. Dùng khi bạn cần sửa đổi dữ liệu trong lúc hàm đang chạy.
+- **Storage:** Vùng lưu trữ vĩnh viễn trên blockchain. Ghi dữ liệu vào storage (\`SSTORE\`) là thao tác đắt nhất EVM (lên tới 20,000 gas/slot).\n
+💡 *Nguyên tắc:* Đừng ghi vào storage trừ khi dữ liệu đó bắt buộc phải sống qua các giao dịch tiếp theo!`
+      },
+      {
+        keywords: ['reentrancy', 'tái thâm nhập', 'the dao', 'cei', 'checks', 'effects', 'interactions', 'guard'],
+        answer: `🛡️ **Lỗ hổng Reentrancy & Mẫu thiết kế CEI (Checks-Effects-Interactions):**\n
+**Bản chất:** Xảy ra khi Smart Contract gửi tiền ra ngoài trước khi trừ số dư nội bộ. Hacker viết một contract có hàm \`receive()\` lập tức gọi ngược lại hàm rút tiền trước khi dòng lệnh trừ tiền được thi hành.\n
+**Cách phòng thủ chuẩn mực (CEI Pattern):**
+1. **Checks:** Kiểm tra điều kiện tiên quyết (\`require(balances[msg.sender] >= amount)\`).
+2. **Effects:** Cập nhật trạng thái số dư nội bộ ngay lập tức (\`balances[msg.sender] = 0\`).
+3. **Interactions:** Sau khi số dư đã về 0, mới thực hiện chuyển tiền ra ngoài (\`call{value: amount}("")\`).\n
+Khi hacker cố tình re-enter, bước Checks sẽ thấy số dư bằng 0 và lập tức Revert!`
+      },
+      {
+        keywords: ['audited', 'safe', 'kiểm toán', 'an toàn', 'slither', 'echidna'],
+        answer: `⚠️ **Tại sao trong Web3 "Audited != Safe" (Đã kiểm toán không đồng nghĩa với an toàn)?**\n
+1. **Phạm vi Snapshot:** Kiểm toán chỉ đánh giá mã nguồn tại một thời điểm cố định. Khi deploy sai tham số hoặc nâng cấp contract mới thì rủi ro vẫn xuất hiện.
+2. **Lỗ hổng quản lý khóa:** Các vụ hack lớn nhất lịch sử (như Ronin $625M) xuất phát từ **lộ khóa Private Key của Validator** qua tấn công lừa đảo (social engineering), chứ không phải do lỗi code Solidity!
+3. **Thao túng Oracle:** Hacker dùng các khoản vay chớp nhoáng (Flash Loan) đẩy lệch giá trên sàn DEX để bòn rút tài sản dù code hoàn toàn đúng cú pháp.`
+      }
+    ];
+
+    let currentActiveModuleId = 'm1';
+    let currentQuizMode = 'random'; // 'random' | 'module'
+    let currentQuizQuestions = [];
+    let currentSelectedAnswers = {};
+    let isQuizSubmitted = false;
+
+    // Trạng thái mô phỏng Reentrancy
+    let stateBankTreasury = 10;
+    let stateHackerStake = 1;
+    let stateHackerLoot = 0;
+    let isAttackingInProgress = false;
+
+    window.addEventListener('DOMContentLoaded', () => {
+      renderLectureMenu();
+      renderLectureContent(currentActiveModuleId);
+      computeLiveHash();
+      calculateUTXO();
+      generateQuiz();
+    });
+
+    function switchTab(tabId) {
+      document.getElementById('tab-content-lectures').classList.add('hidden');
+      document.getElementById('tab-content-simulators').classList.add('hidden');
+      document.getElementById('tab-content-quiz').classList.add('hidden');
+      document.getElementById('tab-content-tutor').classList.add('hidden');
+
+      const buttons = document.querySelectorAll('.tab-btn');
+      buttons.forEach(btn => {
+        btn.classList.remove('active', 'text-white', 'bg-indigo-600', 'shadow-md', 'shadow-indigo-600/30');
+        btn.classList.add('text-slate-400', 'hover:text-slate-200', 'hover:bg-slate-900');
+      });
+
+      const targetContent = document.getElementById(`tab-content-${tabId}`);
+      if (targetContent) targetContent.classList.remove('hidden');
+
+      const targetBtn = document.getElementById(`nav-btn-${tabId}`);
+      if (targetBtn) {
+        targetBtn.classList.remove('text-slate-400', 'hover:text-slate-200', 'hover:bg-slate-900');
+        targetBtn.classList.add('active', 'text-white', 'bg-indigo-600', 'shadow-md', 'shadow-indigo-600/30');
+      }
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function renderLectureMenu() {
+      const container = document.getElementById('lecture-menu');
+      container.innerHTML = MODULES_DATA.map(mod => {
+        const isSelected = mod.id === currentActiveModuleId;
+        return `
+          <button 
+            onclick="selectModule('${mod.id}')" 
+            class="w-full text-left p-3.5 rounded-xl border transition-all flex items-start space-x-3 ${
+              isSelected 
+                ? 'bg-indigo-950/60 border-indigo-500/70 text-white shadow-lg shadow-indigo-950/50' 
+                : 'bg-slate-950/40 border-slate-800 text-slate-400 hover:border-slate-700 hover:bg-slate-900/60'
+            }"
+          >
+            <div class="p-2 rounded-lg shrink-0 mt-0.5 ${isSelected ? 'bg-indigo-600 text-white' : 'bg-slate-800 text-slate-400'}">
+              <i class="fa-solid ${mod.icon} text-sm"></i>
+            </div>
+            <div class="overflow-hidden">
+              <div class="flex items-center space-x-2">
+                <span class="text-[10px] font-mono px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-semibold">${mod.session}</span>
+              </div>
+              <h3 class="text-xs sm:text-sm font-semibold mt-1 truncate ${isSelected ? 'text-indigo-200' : 'text-slate-300'}">${mod.title}</h3>
+            </div>
+          </button>
+        `;
+      }).join('');
+    }
+
+    function selectModule(moduleId) {
+      currentActiveModuleId = moduleId;
+      renderLectureMenu();
+      renderLectureContent(moduleId);
+    }
+
+    function renderLectureContent(moduleId) {
+      const mod = MODULES_DATA.find(m => m.id === moduleId);
+      if (!mod) return;
+
+      const container = document.getElementById('lecture-viewer');
+      container.innerHTML = `
+        <div class="border-b border-slate-800 pb-5 mb-6">
+          <div class="flex items-center space-x-2.5 mb-2 text-indigo-400 text-xs font-semibold uppercase tracking-wider">
+            <span class="px-2.5 py-1 rounded-md bg-indigo-950 border border-indigo-800 font-mono">${mod.session}</span>
+            <span>${mod.badge}</span>
+          </div>
+          <h2 class="text-xl sm:text-2xl font-bold text-slate-100">${mod.title}</h2>
+          <p class="text-xs sm:text-sm text-slate-400 mt-2 leading-relaxed">${mod.summary}</p>
+        </div>
+
+        <div class="space-y-8">
+          ${mod.sections.map(sec => `
+            <div class="space-y-3">
+              <h3 class="text-sm sm:text-base font-bold text-sky-300 flex items-center space-x-2">
+                <span class="h-2 w-2 rounded-full bg-sky-400"></span>
+                <span>${sec.heading}</span>
+              </h3>
+              <div class="text-xs sm:text-sm text-slate-300 leading-relaxed whitespace-pre-line pl-3.5 border-l-2 border-slate-800">
+                ${sec.content}
+              </div>
+              ${sec.codeSnippet ? `
+                <div class="mt-3 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 font-mono text-xs">
+                  <div class="bg-slate-900/90 px-4 py-2 border-b border-slate-800 flex justify-between items-center text-slate-400 text-[11px]">
+                    <span><i class="fa-solid fa-code text-indigo-400 mr-1.5"></i> Code minh họa</span>
+                    <button onclick="copyCode(this)" class="hover:text-white transition flex items-center space-x-1">
+                      <i class="fa-regular fa-copy"></i>
+                      <span>Sao chép</span>
+                    </button>
+                  </div>
+                  <pre class="p-4 text-emerald-400 overflow-x-auto leading-relaxed"><code>${escapeHTML(sec.codeSnippet)}</code></pre>
+                </div>
+              ` : ''}
+            </div>
+          `).join('')}
+        </div>
+
+        <div class="mt-10 pt-6 border-t border-slate-800 flex flex-wrap items-center justify-between gap-4">
+          <div>
+            <h4 class="text-xs sm:text-sm font-semibold text-slate-200">Đã nắm vững nội dung bài học này?</h4>
+            <p class="text-xs text-slate-400">Làm ngay bài kiểm tra trắc nghiệm ngẫu nhiên cho chuyên đề này.</p>
+          </div>
+          <button onclick="testCurrentModule()" class="px-4 py-2.5 bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-semibold rounded-xl shadow-lg shadow-indigo-600/30 transition flex items-center space-x-2">
+            <i class="fa-solid fa-play text-xs"></i>
+            <span>Làm bài Test ${mod.session}</span>
+          </button>
+        </div>
+      `;
+    }
+
+    function escapeHTML(str) {
+      return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    }
+
+    function copyCode(btn) {
+      const codeBlock = btn.closest('.rounded-xl').querySelector('code').innerText;
+      navigator.clipboard.writeText(codeBlock);
+      btn.innerHTML = `<i class="fa-solid fa-check text-emerald-400"></i><span class="text-emerald-400">Đã chép!</span>`;
+      setTimeout(() => {
+        btn.innerHTML = `<i class="fa-regular fa-copy"></i><span>Sao chép</span>`;
+      }, 2000);
+    }
+
+    function testCurrentModule() {
+      setQuizMode('module');
+      document.getElementById('quiz-module-select').value = currentActiveModuleId;
+      generateQuiz();
+      switchTab('quiz');
+    }
+
+    function askTutorCurrentTopic() {
+      const mod = MODULES_DATA.find(m => m.id === currentActiveModuleId);
+      switchTab('tutor');
+      if (mod) {
+        document.getElementById('tutor-input').value = `Hãy giải thích tóm tắt các điểm quan trọng nhất của ${mod.title}?`;
+      }
+    }
+
+    // Mô phỏng 1: Hash SHA-256
+    async function computeLiveHash() {
+      const text = document.getElementById('sim-hash-input').value;
+      const outputElem = document.getElementById('sim-hash-output');
+      try {
+        const msgBuffer = new TextEncoder().encode(text);
+        const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
+        const hashArray = Array.from(new Uint8Array(hashBuffer));
+        const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+        outputElem.innerText = hashHex;
+      } catch (err) {
+        outputElem.innerText = "Lỗi tính toán hàm băm Web Crypto!";
+      }
+    }
+
+    // Mô phỏng 2: Tính toán UTXO
+    function calculateUTXO() {
+      const inputVal = parseFloat(document.getElementById('utxo-input').value) || 0;
+      const sendVal = parseFloat(document.getElementById('utxo-send').value) || 0;
+      const feeRate = parseFloat(document.getElementById('utxo-feerate').value) || 0;
+      const txSize = parseFloat(document.getElementById('utxo-size').value) || 0;
+
+      const feeSats = Math.round(feeRate * txSize);
+      const feeBtc = feeSats / 100000000;
+      const changeBtc = inputVal - sendVal - feeBtc;
+
+      document.getElementById('utxo-res-fee').innerText = `${feeBtc.toFixed(8)} BTC (~${feeSats.toLocaleString()} sats)`;
+
+      const changeElem = document.getElementById('utxo-res-change');
+      if (changeBtc >= 0) {
+        changeElem.innerText = `${changeBtc.toFixed(8)} BTC`;
+        changeElem.className = 'font-mono text-emerald-400 font-semibold';
+      } else {
+        changeElem.innerText = `Không đủ số dư trả phí! (Thiếu ${Math.abs(changeBtc).toFixed(8)} BTC)`;
+        changeElem.className = 'font-mono text-rose-400 font-semibold';
+      }
+    }
+
+    // Mô phỏng 3: Tấn công Reentrancy
+    function triggerReentrancyAttack() {
+      if (isAttackingInProgress || stateBankTreasury <= 0) return;
+
+      isAttackingInProgress = true;
+      const isCEIEnabled = document.getElementById('cei-toggle').checked;
+      const terminal = document.getElementById('reentrancy-terminal');
+      terminal.innerHTML = '';
+
+      let logs = [];
+      logs.push({ text: `🚀 [BẮT ĐẦU] Hacker kích hoạt hợp đồng độc hại gọi withdraw(1 ETH)...`, type: 'info' });
+
+      if (isCEIEnabled) {
+        logs.push({ text: `🛡 [BẢO VỆ CEI ĐANG BẬT] Thực thi theo thứ tự Checks -> Effects -> Interactions:`, type: 'success' });
+        logs.push({ text: `1. Checks: require(balances[hacker] >= 1 ETH) => HỢP LỆ.`, type: 'info' });
+        logs.push({ text: `2. Effects: balances[hacker] = 0 (ĐÃ TRỪ TIỀN TRONG BẢNG SỐ DƯ NỘI BỘ TRƯỚC!).`, type: 'success' });
+        logs.push({ text: `3. Interactions: msg.sender.call{value: 1 ETH}("") gửi tiền sang hợp đồng Hacker.`, type: 'info' });
+        logs.push({ text: `⚠️ Hàm receive() của Hacker lập tức re-enter gọi lại withdraw()...`, type: 'warning' });
+        logs.push({ text: `🛑 Cuộc gọi đệ quy thất bại: Checks thấy balances[hacker] == 0 => REVERT!`, type: 'success' });
+        logs.push({ text: `✅ KẾT QUẢ: Tấn công thất bại! Kho bạc bảo toàn, hacker chỉ rút được đúng 1 ETH đã nạp.`, type: 'success' });
+
+        stateBankTreasury -= 1;
+        stateHackerStake = 0;
+        stateHackerLoot = 1;
+      } else {
+        logs.push({ text: `❌ [CẢNH BÁO: CHƯA BẬT CEI] Chuyển tiền TRƯỚC KHI cập nhật số dư!`, type: 'danger' });
+        let round = 1;
+        while (stateBankTreasury > 0 && round <= 5) {
+          logs.push({ text: `⚡ Vòng ${round}: Bank chuyển 2 ETH sang Hacker. Số dư nội bộ CHƯA KỊP TRỪ!`, type: 'danger' });
+          logs.push({ text: `🔁 Hàm fallback() của Hacker chộp lấy cơ hội, tiếp tục gọi withdraw()...`, type: 'warning' });
+          stateBankTreasury -= 2;
+          stateHackerLoot += 2;
+          round++;
+        }
+        stateBankTreasury = Math.max(0, stateBankTreasury);
+        logs.push({ text: `💀 [THẢM HỌA] Kho bạc EtherBank bị bòn rút cạn kiệt về 0 ETH! Toàn bộ tiền của người dùng khác đã bị cướp.`, type: 'danger' });
+      }
+
+      let i = 0;
+      function showNextLog() {
+        if (i < logs.length) {
+          const item = logs[i];
+          const p = document.createElement('p');
+          if (item.type === 'success') p.className = 'text-emerald-400 font-semibold';
+          else if (item.type === 'danger') p.className = 'text-rose-400 font-semibold';
+          else if (item.type === 'warning') p.className = 'text-amber-300';
+          else p.className = 'text-slate-300';
+          p.innerText = item.text;
+          terminal.appendChild(p);
+          terminal.scrollTop = terminal.scrollHeight;
+          i++;
+          setTimeout(showNextLog, 280);
+        } else {
+          isAttackingInProgress = false;
+          updateReentrancyUI();
+        }
+      }
+      showNextLog();
+    }
+
+    function resetReentrancyPlayground() {
+      stateBankTreasury = 10;
+      stateHackerStake = 1;
+      stateHackerLoot = 0;
+      isAttackingInProgress = false;
+      document.getElementById('reentrancy-terminal').innerHTML = `<p class="text-slate-500">Đã làm mới trạng thái. Nhấn nút gọi hàm withdraw() để kiểm tra lại...</p>`;
+      document.getElementById('log-count').innerText = '0 sự kiện';
+      updateReentrancyUI();
+    }
+
+    function updateReentrancyUI() {
+      document.getElementById('bank-treasury').innerText = `${stateBankTreasury} ETH`;
+      document.getElementById('hacker-stake').innerText = `${stateHackerStake} ETH`;
+      document.getElementById('hacker-loot').innerText = `${stateHackerLoot} ETH`;
+    }
+
+    function setQuizMode(mode) {
+      currentQuizMode = mode;
+      const btnRandom = document.getElementById('quiz-mode-random');
+      const btnModule = document.getElementById('quiz-mode-module');
+      const selectWrap = document.getElementById('quiz-module-select-wrap');
+
+      if (mode === 'random') {
+        btnRandom.className = 'px-3.5 py-1.5 rounded-lg bg-indigo-600 text-white transition';
+        btnModule.className = 'px-3.5 py-1.5 rounded-lg text-slate-400 hover:text-white transition';
+        selectWrap.classList.add('hidden');
+      } else {
+        btnModule.className = 'px-3.5 py-1.5 rounded-lg bg-indigo-600 text-white transition';
+        btnRandom.className = 'px-3.5 py-1.5 rounded-lg text-slate-400 hover:text-white transition';
+        selectWrap.classList.remove('hidden');
+      }
+      generateQuiz();
+    }
+
+    function shuffleArray(array) {
+      const arr = [...array];
+      for (let i = arr.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+      }
+      return arr;
+    }
+
+    function generateQuiz() {
+      isQuizSubmitted = false;
+      currentSelectedAnswers = {};
+      document.getElementById('btn-submit-quiz').classList.remove('hidden');
+      document.getElementById('btn-retry-quiz').classList.add('hidden');
+      document.getElementById('quiz-summary-text').innerText = 'Chọn đáp án cho các câu hỏi bên trên và bấm nút nộp bài.';
+
+      let pool = [...QUESTION_BANK];
+      if (currentQuizMode === 'module') {
+        const selectedMod = document.getElementById('quiz-module-select').value;
+        if (selectedMod !== 'all') {
+          pool = pool.filter(q => q.moduleId === selectedMod);
+          if (pool.length === 0) pool = [...QUESTION_BANK];
+        }
+      }
+
+      // Xáo trộn câu hỏi
+      const shuffled = shuffleArray(pool);
+      const countVal = document.getElementById('quiz-count-select').value;
+      const questionCount = countVal === 'all' ? shuffled.length : Math.min(parseInt(countVal, 10), shuffled.length);
+      
+      currentQuizQuestions = shuffled.slice(0, questionCount);
+      renderQuizQuestions();
+    }
+
+    function renderQuizQuestions() {
+      const container = document.getElementById('quiz-questions-list');
+      container.innerHTML = currentQuizQuestions.map((q, qIdx) => `
+        <div id="quiz-card-${qIdx}" class="card-glass rounded-2xl p-6 shadow-md transition-all">
+          <div class="flex items-center justify-between mb-3">
+            <span class="text-[11px] font-semibold text-indigo-400 bg-indigo-950/60 px-2.5 py-0.5 rounded-full border border-indigo-800/40">
+              ${q.moduleTitle}
+            </span>
+            <span class="text-xs text-slate-400 font-mono">Câu hỏi #${qIdx + 1}</span>
+          </div>
+
+          <h3 class="text-sm sm:text-base font-semibold text-slate-100 mb-4 leading-relaxed">${q.question}</h3>
+
+          <div class="space-y-2.5">
+            ${q.options.map((opt, optIdx) => `
+              <button 
+                type="button"
+                id="opt-btn-${qIdx}-${optIdx}" 
+                onclick="chooseQuizAnswer(${qIdx}, ${optIdx})"
+                class="quiz-option-btn w-full text-left p-3.5 rounded-xl border border-slate-800 bg-slate-950/60 text-slate-300 text-xs sm:text-sm hover:border-slate-700 hover:bg-slate-900 transition flex items-center justify-between"
+              >
+                <span>${opt}</span>
+                <span class="indicator-icon hidden ml-2"></span>
+              </button>
+            `).join('')}
+          </div>
+
+          <div id="explanation-${qIdx}" class="hidden mt-4 pt-4 border-t border-slate-800/80 bg-slate-950/60 p-3.5 rounded-xl text-xs space-y-1.5">
+            <div class="font-semibold text-amber-300 flex items-center space-x-1.5">
+              <i class="fa-solid fa-lightbulb"></i>
+              <span>Giải thích cặn kẽ từ giảng viên:</span>
+            </div>
+            <p class="text-slate-300 leading-relaxed pl-5">${q.explanation}</p>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function chooseQuizAnswer(qIdx, optIdx) {
+      if (isQuizSubmitted) return;
+      currentSelectedAnswers[qIdx] = optIdx;
+
+      const totalOptions = currentQuizQuestions[qIdx].options.length;
+      for (let o = 0; o < totalOptions; o++) {
+        const btn = document.getElementById(`opt-btn-${qIdx}-${o}`);
+        if (o === optIdx) {
+          btn.className = 'quiz-option-btn w-full text-left p-3.5 rounded-xl border border-indigo-500 bg-indigo-950/40 text-indigo-200 text-xs sm:text-sm shadow-sm flex items-center justify-between';
+        } else {
+          btn.className = 'quiz-option-btn w-full text-left p-3.5 rounded-xl border border-slate-800 bg-slate-950/60 text-slate-300 text-xs sm:text-sm hover:border-slate-700 hover:bg-slate-900 transition flex items-center justify-between';
+        }
+      }
+
+      const answeredCount = Object.keys(currentSelectedAnswers).length;
+      document.getElementById('quiz-summary-text').innerText = `Đã trả lời ${answeredCount} / ${currentQuizQuestions.length} câu hỏi.`;
+    }
+
+    function submitQuiz() {
+      if (isQuizSubmitted) return;
+      isQuizSubmitted = true;
+
+      let score = 0;
+      currentQuizQuestions.forEach((q, qIdx) => {
+        const chosen = currentSelectedAnswers[qIdx];
+        const card = document.getElementById(`quiz-card-${qIdx}`);
+        const explanation = document.getElementById(`explanation-${qIdx}`);
+        explanation.classList.remove('hidden');
+
+        if (chosen === q.answer) {
+          score++;
+          card.classList.add('border-emerald-500/50', 'bg-emerald-950/10');
+        } else {
+          card.classList.add('border-rose-500/50', 'bg-rose-950/10');
+        }
+
+        q.options.forEach((_, optIdx) => {
+          const btn = document.getElementById(`opt-btn-${qIdx}-${optIdx}`);
+          const indicator = btn.querySelector('.indicator-icon');
+          indicator.classList.remove('hidden');
+
+          if (optIdx === q.answer) {
+            btn.className = 'quiz-option-btn w-full text-left p-3.5 rounded-xl border border-emerald-500 bg-emerald-950/40 text-emerald-200 font-semibold text-xs sm:text-sm flex items-center justify-between';
+            indicator.innerHTML = `<i class="fa-solid fa-circle-check text-emerald-400"></i>`;
+          } else if (optIdx === chosen && chosen !== q.answer) {
+            btn.className = 'quiz-option-btn w-full text-left p-3.5 rounded-xl border border-rose-500 bg-rose-950/40 text-rose-200 line-through text-xs sm:text-sm flex items-center justify-between';
+            indicator.innerHTML = `<i class="fa-solid fa-circle-xmark text-rose-400"></i>`;
+          } else {
+            btn.className = 'quiz-option-btn w-full text-left p-3.5 rounded-xl border border-slate-800/40 bg-slate-950/20 text-slate-500 text-xs sm:text-sm flex items-center justify-between';
+          }
+        });
+      });
+
+      const percentage = Math.round((score / currentQuizQuestions.length) * 100);
+      const summaryElem = document.getElementById('quiz-summary-text');
+      summaryElem.innerHTML = `
+        <div class="flex items-center space-x-2">
+          <span>Kết quả: <strong class="text-white">${score}/${currentQuizQuestions.length} câu đúng (${percentage}%)</strong></span>
+          <span class="px-2 py-0.5 rounded text-xs font-bold ${percentage >= 80 ? 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/40' : 'bg-amber-500/20 text-amber-400 border border-amber-500/40'}">
+            ${percentage >= 80 ? 'Xuất sắc' : 'Cần ôn thêm'}
+          </span>
+        </div>
+      `;
+
+      document.getElementById('btn-submit-quiz').classList.add('hidden');
+      document.getElementById('btn-retry-quiz').classList.remove('hidden');
+    }
+
+    function toggleApiKeyModal() {
+      const modal = document.getElementById('modal-apikey');
+      modal.classList.toggle('hidden');
+      const savedKey = localStorage.getItem('gemini_api_key') || '';
+      document.getElementById('gemini-key-input').value = savedKey;
+    }
+
+    function saveApiKey() {
+      const val = document.getElementById('gemini-key-input').value.trim();
+      if (val) {
+        localStorage.setItem('gemini_api_key', val);
+      } else {
+        localStorage.removeItem('gemini_api_key');
+      }
+      toggleApiKeyModal();
+      appendTutorMessage("Đã cập nhật cấu hình API Key thành công!", 'tutor');
+    }
+
+    function clearApiKey() {
+      localStorage.removeItem('gemini_api_key');
+      document.getElementById('gemini-key-input').value = '';
+      toggleApiKeyModal();
+      appendTutorMessage("Đã xóa API Key. Trợ giảng sẽ chuyển về chế độ offline thông minh.", 'tutor');
+    }
+
+    function sendQuickPrompt(promptText) {
+      document.getElementById('tutor-input').value = promptText;
+      handleTutorSubmit(new Event('submit'));
+    }
+
+    async function handleTutorSubmit(e) {
+      if (e) e.preventDefault();
+      const input = document.getElementById('tutor-input');
+      const question = input.value.trim();
+      if (!question) return;
+
+      appendTutorMessage(question, 'user');
+      input.value = '';
+
+      const loadingId = appendTutorLoading();
+      const customApiKey = localStorage.getItem('gemini_api_key');
+
+      if (customApiKey) {
+        try {
+          const apiReply = await fetchGeminiAPI(question, customApiKey);
+          removeTutorLoading(loadingId);
+          appendTutorMessage(apiReply, 'tutor');
+          return;
+        } catch (err) {
+          console.warn("Lỗi kết nối Gemini API, sử dụng tri thức cục bộ:", err);
+        }
+      }
+
+      setTimeout(() => {
+        removeTutorLoading(loadingId);
+        const localReply = searchLocalKnowledge(question);
+        appendTutorMessage(localReply, 'tutor');
+      }, 450);
+    }
+
+    function searchLocalKnowledge(query) {
+      const lower = query.toLowerCase();
+      let bestMatch = null;
+      let maxScore = 0;
+
+      for (const item of TUTOR_KNOWLEDGE_BASE) {
+        let score = 0;
+        for (const kw of item.keywords) {
+          if (lower.includes(kw.toLowerCase())) {
+            score += 2;
+          }
+        }
+        if (score > maxScore) {
+          maxScore = score;
+          bestMatch = item;
+        }
+      }
+
+      if (bestMatch && maxScore > 0) {
+        return bestMatch.answer;
+      }
+
+      return `Cảm ơn câu hỏi của bạn về: "${query}"!\n\nTôi đang đối chiếu trong cơ sở kiến thức 7 bài giảng của khóa học:\n- **Bài 5 (Session 6):** Bạn có thể hỏi về "Calldata vs Memory", "Hardhat loop", "cấu trúc smart contract".\n- **Bài 6 (Session 7):** Bạn có thể hỏi về "quy tắc ngón tay cái how much", "ERC-20 approve", "EIP-2612 Permit".\n- **Bài 3 & 4 (Session 4 & 5):** Thử hỏi "mô hình UTXO tiền lẻ", "EIP-1559 đốt baseFee".\n- **Bài 7 (Session 8):** Hỏi về "Reentrancy CEI pattern", "audited != safe".\n\n*(Mẹo: Bạn có thể nhấn nút "Cấu hình Gemini API" ở góc trên để kết nối trực tiếp với mô hình AI mở rộng)*`;
+    }
+
+    async function fetchGeminiAPI(userPrompt, apiKey) {
+      const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`;
+      const systemPrompt = `Bạn là Trợ giảng Blockchain chuyên sâu trong khóa học Blockchain Academy. Giáo trình gồm 7 bài giảng: Bài 1 (Distributed Systems, Blockchain 101, DO/DAO/DAC/DAS), Bài 2 (Hàm băm, Merkle tree, ECDSA, BIP-39/32), Bài 3 (Bitcoin UTXO, Script không Turing-complete, sat/vB, Nakamoto consensus, BFT), Bài 4 (Ethereum, EVM 256-bit, EIP-1559, PoS, MEV), Bài 5 (Session 6: Smart contract engineering, Hardhat loop, Storage vs Memory vs Calldata), Bài 6 (Session 7: Token standards ERC-20/721/1155, EIP-2612 permit, SafeERC20), Bài 7 (Session 8: Reentrancy, CEI pattern, Slither, Echidna, Block 840,000, 12 đề tài Seminar). Hãy giải thích bằng tiếng Việt khoa học, gãy gọn, đưa ra ví dụ đời sống gần gũi và code minh họa khi cần.`;
+      
+      const payload = {
+        contents: [{ parts: [{ text: userPrompt }] }],
+        systemInstruction: { parts: [{ text: systemPrompt }] }
+      };
+
+      const res = await fetch(url, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+      const data = await res.json();
+      return data.candidates?.[0]?.content?.parts?.[0]?.text || "Không nhận được phản hồi từ AI API.";
+    }
+
+    function appendTutorMessage(text, sender) {
+      const stream = document.getElementById('tutor-chat-stream');
+      const wrap = document.createElement('div');
+      wrap.className = `flex items-start space-x-3 ${sender === 'user' ? 'justify-end' : 'justify-start'}`;
+
+      if (sender === 'user') {
+        wrap.innerHTML = `
+          <div class="max-w-xl p-3.5 rounded-2xl rounded-tr-none bg-indigo-600 text-white text-xs sm:text-sm leading-relaxed shadow-md shadow-indigo-600/20">
+            ${escapeHTML(text)}
+          </div>
+        `;
+      } else {
+        wrap.innerHTML = `
+          <div class="h-8 w-8 rounded-lg bg-indigo-600/20 border border-indigo-500/40 text-indigo-400 flex items-center justify-center shrink-0 mt-0.5">
+            <i class="fa-solid fa-graduation-cap"></i>
+          </div>
+          <div class="max-w-2xl p-4 rounded-2xl rounded-tl-none bg-slate-950 border border-slate-800 text-slate-200 text-xs sm:text-sm leading-relaxed shadow-inner whitespace-pre-line">
+            ${text}
+          </div>
+        `;
+      }
+      stream.appendChild(wrap);
+      stream.scrollTop = stream.scrollHeight;
+    }
+
+    function appendTutorLoading() {
+      const stream = document.getElementById('tutor-chat-stream');
+      const id = 'loading-' + Date.now();
+      const wrap = document.createElement('div');
+      wrap.id = id;
+      wrap.className = 'flex items-center space-x-2 text-slate-400 text-xs py-2';
+      wrap.innerHTML = `
+        <div class="h-7 w-7 rounded-lg bg-indigo-600/20 text-indigo-400 flex items-center justify-center shrink-0">
+          <i class="fa-solid fa-spinner animate-spin"></i>
+        </div>
+        <span>Trợ giảng đang tra cứu cơ sở kiến thức...</span>
+      `;
+      stream.appendChild(wrap);
+      stream.scrollTop = stream.scrollHeight;
+      return id;
+    }
+
+    function removeTutorLoading(id) {
+      const el = document.getElementById(id);
+      if (el) el.remove();
+    }
+  </script>
+</body>
+</html>
